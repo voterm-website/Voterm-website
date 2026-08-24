@@ -1,0 +1,1 @@
+const m=document.getElementById('menu'),n=document.getElementById('nav');if(m)m.onclick=()=>{n.style.display=n.style.display==='flex'?'none':'flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='76px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.padding='10px 5%'};
