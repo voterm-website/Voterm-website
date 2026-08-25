@@ -1,752 +1,597 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Voice on the Rock Evangelical Mission</title>
-  <meta name="description"
-        content="Voice on the Rock Evangelical Mission — Standing Upon the Rock, Proclaiming His Voice.">
-
-  <style>
-    :root {
-      --navy: #031a3d;
-      --navy2: #062957;
-      --gold: #f5b928;
-      --gold2: #ffd65a;
-      --white: #ffffff;
-      --light: #f5f7fb;
-      --text: #152238;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--light);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* HEADER */
-    header {
-      background: rgba(3, 26, 61, 0.97);
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid var(--gold);
-    }
-
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: white;
-      font-weight: bold;
-    }
-
-    .brand-icon {
-      width: 48px;
-      height: 48px;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 25px;
-    }
-
-    .brand-text {
-      line-height: 1.15;
-    }
-
-    .brand-text small {
-      display: block;
-      color: var(--gold);
-      letter-spacing: 2px;
-      font-size: 10px;
-      margin-top: 3px;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: white;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    .menu {
-      display: none;
-      font-size: 28px;
-      color: var(--gold);
-      cursor: pointer;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 720px;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(245,185,40,.18), transparent 30%),
-        linear-gradient(135deg, #02132e, #063268 60%, #031a3d);
-      color: white;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero:after {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border: 1px solid rgba(245,185,40,.18);
-      border-radius: 50%;
-      right: -220px;
-      top: -200px;
-    }
-
-    .hero-content {
-      width: 100%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 70px 20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* MEGAPHONE */
-    .megaphone {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 28px;
-      border: 4px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 35px rgba(245,185,40,.25);
-      color: var(--gold);
-      font-size: 76px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 78px);
-      line-height: 1.05;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-    }
-
-    .hero h2 {
-      font-size: clamp(20px, 3vw, 32px);
-      letter-spacing: 4px;
-      margin-bottom: 25px;
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: auto;
-      font-size: 19px;
-      color: #e8edf7;
-    }
-
-    .gold-line {
-      width: 110px;
-      height: 4px;
-      background: var(--gold);
-      margin: 30px auto;
-    }
-
-    .buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .btn {
-      padding: 15px 25px;
-      border-radius: 7px;
-      font-weight: bold;
-      display: inline-block;
-      transition: .2s;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .btn-gold:hover {
-      background: var(--gold2);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      color: white;
-      border: 2px solid var(--gold);
-    }
-
-    .btn-outline:hover {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    /* GENERAL */
-    section {
-      padding: 80px 20px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--navy);
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 45px;
-      color: #596579;
-    }
-
-    /* MISSION */
-    .mission {
-      background: white;
-    }
-
-    .mission-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    .mission-card {
-      padding: 35px;
-      border-radius: 12px;
-      background: #fff;
-      border-top: 5px solid var(--gold);
-      box-shadow: 0 8px 30px rgba(3,26,61,.08);
-    }
-
-    .mission-card h3 {
-      color: var(--navy);
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
-
-    .focus {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-    }
-
-    .focus h2 {
-      color: var(--gold);
-    }
-
-    .focus-list {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .focus-list span {
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-
-    /* CONNECT */
-    .socials {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .social {
-      background: white;
-      border-radius: 10px;
-      padding: 24px;
-      text-align: center;
-      color: var(--navy);
-      font-weight: bold;
-      box-shadow: 0 5px 20px rgba(3,26,61,.08);
-      border-bottom: 4px solid var(--gold);
-      transition: .2s;
-    }
-
-    .social:hover {
-      transform: translateY(-5px);
-      background: var(--navy);
-      color: var(--gold);
-    }
-
-    .social-icon {
-      display: block;
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
-
-    /* ACTIONS */
-    .actions {
-      background: linear-gradient(135deg, #031a3d, #07376d);
-      color: white;
-    }
-
-    .action-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .action {
-      background: white;
-      color: var(--text);
-      padding: 35px 25px;
-      text-align: center;
-      border-radius: 12px;
-    }
-
-    .action h3 {
-      color: var(--navy);
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .action p {
-      margin-bottom: 20px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #020f25;
-      color: #bfc9da;
-      text-align: center;
-      padding: 45px 20px;
-    }
-
-    footer strong {
-      color: var(--gold);
-    }
-
-    .footer-socials {
-      margin: 20px 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-socials a {
-      color: white;
-    }
-
-    .footer-socials a:hover {
-      color: var(--gold);
-    }
-
-    /* MOBILE */
-    @media (max-width: 750px) {
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 78px;
-        left: 0;
-        right: 0;
-        background: var(--navy);
-        padding: 20px;
-        flex-direction: column;
-        text-align: center;
-        border-top: 1px solid var(--gold);
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .menu {
-        display: block;
-      }
-
-      .mission-grid,
-      .action-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .socials {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero {
-        min-height: 650px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .socials {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 39px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="nav">
-
-    <a href="#home" class="brand">
-      <div class="brand-icon">📣</div>
-      <div class="brand-text">
-        VOICE ON THE ROCK
-        <small>EVANGELICAL MISSION</small>
-      </div>
-    </a>
-
-    <div class="menu" onclick="toggleMenu()">☰</div>
-
-    <nav id="navigation">
-      <a href="#home">Home</a>
-      <a href="#mission">Our Mission</a>
-      <a href="#connect">Connect</a>
-      <a href="#prayer">Prayer</a>
-      <a href="#give">Give</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-  <div class="hero-content">
-
-    <div class="megaphone">📣</div>
-
-    <h1>Voice on the Rock</h1>
-
-    <h2>EVANGELICAL MISSION</h2>
-
-    <div class="gold-line"></div>
-
-    <p>
-      A Christ-centred evangelical ministry committed to the
-      uncompromised Word of God, discipleship, prayer,
-      evangelism and the Great Commission.
-    </p>
-
-    <div class="buttons">
-      <a class="btn btn-gold" href="#mission">
-        Our Mission
-      </a>
-
-      <a class="btn btn-outline" href="#prayer">
-        Submit a Prayer Request
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- MISSION -->
-<section class="mission" id="mission">
-
-  <div class="container">
-
-    <h2 class="section-title">Standing Upon the Rock</h2>
-
-    <p class="section-subtitle">
-      Proclaiming His Voice and pointing people to Jesus Christ
-      through Scripture, prayer, discipleship and mission.
-    </p>
-
-    <div class="mission-grid">
-
-      <div class="mission-card">
-        <h3>Our Mission</h3>
-        <p>
-          To proclaim the Gospel of Jesus Christ, teach the
-          uncompromised Word of God, make disciples and reach
-          people with the hope of Christ.
-        </p>
-      </div>
-
-      <div class="mission-card">
-        <h3>Our Vision</h3>
-        <p>
-          To see lives transformed by the Gospel and believers
-          equipped to stand firmly upon the Rock and proclaim
-          His voice wherever God sends them.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOCUS -->
-<section class="focus">
-
-  <div class="container">
-
-    <h2 class="section-title" style="color:#f5b928;">
-      Our Focus
-    </h2>
-
-    <div class="focus-list">
-      <span>Christ</span>
-      <span>Scripture</span>
-      <span>Discipleship</span>
-      <span>Prayer</span>
-      <span>Evangelism</span>
-      <span>Mission</span>
-      <span>Great Commission</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CONNECT -->
-<section id="connect">
-
-  <div class="container">
-
-    <h2 class="section-title">Connect With Us</h2>
-
-    <p class="section-subtitle">
-      Follow Voice on the Rock Evangelical Mission across our
-      social platforms and stay connected with the work of the ministry.
-    </p>
-
-    <div class="socials">
-
-      <a class="social"
-         href="https://www.youtube.com/@voiceontherock"
-         target="_blank">
-        <span class="social-icon">▶</span>
-        YouTube
-      </a>
-
-      <a class="social"
-         href="https://x.com/voiceontherock"
-         target="_blank">
-        <span class="social-icon">𝕏</span>
-        X / Twitter
-      </a>
-
-      <a class="social"
-         href="https://www.facebook.com/share/1LoPxSnCFs/"
-         target="_blank">
-        <span class="social-icon">f</span>
-        Facebook
-      </a>
-
-      <a class="social"
-         href="https://www.tiktok.com/@voice.on.the.rock"
-         target="_blank">
-        <span class="social-icon">♪</span>
-        TikTok
-      </a>
-
-      <a class="social"
-         href="https://www.instagram.com/voiceontherockevangelical"
-         target="_blank">
-        <span class="social-icon">◎</span>
-        Instagram
-      </a>
-
-      <a class="social"
-         href="https://wa.me/2347062073984"
-         target="_blank">
-        <span class="social-icon">◉</span>
-        WhatsApp
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PRAYER / REGISTER / GIVE -->
-<section class="actions" id="prayer">
-
-  <div class="container">
-
-    <h2 class="section-title" style="color:white;">
-      Take Your Next Step
-    </h2>
-
-    <p class="section-subtitle" style="color:#dce5f5;">
-      We want to hear from you, pray with you and help you
-      connect with the mission.
-    </p>
-
-    <div class="action-grid">
-
-      <div class="action">
-        <h3>🙏 Prayer Request</h3>
-        <p>
-          Need prayer? Send your request directly to the ministry.
-        </p>
-
-        <!-- Replace this URL with your actual prayer form -->
-        <a class="btn btn-gold"
-           href="mailto:voiceontherockevangelical@gmail.com?subject=Prayer%20Request">
-          Send Prayer Request
-        </a>
-      </div>
-
-
-      <div class="action">
-        <h3>📝 Register</h3>
-        <p>
-          Register for upcoming programs, events and ministry activities.
-        </p>
-
-        <!-- Replace with your actual registration form -->
-        <a class="btn btn-gold"
-           href="mailto:voiceontherockevangelical@gmail.com?subject=Registration">
-          Register
-        </a>
-      </div>
-
-
-      <div class="action" id="give">
-        <h3>❤️ Give</h3>
-        <p>
-          Support the work of the Gospel and help us reach more people.
-        </p>
-
-        <!-- Replace with your actual giving/payment page -->
-        <a class="btn btn-gold"
-           href="mailto:voiceontherockevangelical@gmail.com?subject=Giving%20Information">
-          Give / Support
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-  <strong>VOICE ON THE ROCK EVANGELICAL MISSION</strong>
-
-  <p style="margin-top:10px;">
-    Standing Upon the Rock, Proclaiming His Voice.
-  </p>
-
-  <div class="footer-socials">
-
-    <a href="https://www.youtube.com/@voiceontherock" target="_blank">
-      YouTube
-    </a>
-
-    <a href="https://x.com/voiceontherock" target="_blank">
-      X
-    </a>
-
-    <a href="https://www.facebook.com/share/1LoPxSnCFs/" target="_blank">
-      Facebook
-    </a>
-
-    <a href="https://www.tiktok.com/@voice.on.the.rock" target="_blank">
-      TikTok
-    </a>
-
-    <a href="https://www.instagram.com/voiceontherockevangelical" target="_blank">
-      Instagram
-    </a>
-
-    <a href="https://wa.me/2347062073984" target="_blank">
-      WhatsApp
-    </a>
-
-  </div>
-
-  <p style="margin-top:20px;font-size:13px;">
-    © 2026 Voice on the Rock Evangelical Mission. All rights reserved.
-  </p>
-
-</footer>
-
-
-<script>
-  function toggleMenu() {
-    document.getElementById("navigation").classList.toggle("show");
-  }
-
-  document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      document.getElementById("navigation").classList.remove("show");
-    });
-  });
-</script>
-
-</body>
-</html>
+Worked for 7s
+
+Yes. If VOTREM has a Constitution, the website should be treated as an official institutional ministry website, not simply a promotional church website.
+
+The redesign should therefore feel mature, authoritative, dignified, doctrinally grounded and administratively credible.
+
+I also found the earlier VOTREM website concepts in the conversation, including the navy/gold visual system, mission language, Scripture, ministries, registration, prayer, giving and contact sections. 
+
+The new direction: VOTREM Official
+
+VOICE ON THE ROCK
+
+EVANGELICAL MISSION
+
+Proclaiming Christ, Building Lives
+
+The website should communicate:
+
+Christ • Scripture • Holiness • Discipleship • Mission • Service • Integrity
+
+Not flashy.
+Not childish.
+Not overloaded with animations.
+
+A serious evangelical institution with a clear spiritual identity.
+
+
+---
+
+1. THE WEBSITE STRUCTURE
+
+I would build the website around the Constitution and organize it into these major areas:
+
+HOME
+
+The public-facing introduction to VOTREM.
+
+ABOUT VOTREM
+
+Who We Are
+
+Our History
+
+Vision
+
+Mission
+
+Statement of Faith
+
+Core Values
+
+Leadership
+
+Constitution & Governance
+
+
+MINISTRIES
+
+Evangelism
+
+Prayer
+
+Discipleship
+
+Choir/Music
+
+Children
+
+Youth
+
+Media
+
+Welfare
+
+Ushering
+
+Protocol
+
+Security
+
+Missions
+
+Other recognized departments
+
+
+TEACHINGS
+
+Sermons
+
+Bible Studies
+
+Messages
+
+Articles
+
+Bible Resources
+
+
+PROGRAMMES
+
+Worship Services
+
+Bible Study
+
+Prayer Meetings
+
+Conferences
+
+Crusades
+
+Evangelism
+
+Outreach
+
+
+LIBRARY
+
+Books
+
+Publications
+
+Study Materials
+
+Documents
+
+Downloads
+
+
+PRAYER
+
+Dedicated prayer-request system.
+
+MEMBERSHIP & SERVICE
+
+This is where the forms become part of the website:
+
+Become a Member
+
+Become a Worker
+
+Volunteer
+
+Apply as a Minister
+
+
+GIVE
+
+A proper ministry giving section.
+
+CONTACT
+
+Location, phone, email, social media and enquiries.
+
+
+---
+
+2. THE CONSTITUTION SHOULD HAVE ITS OWN SECTION
+
+This is important.
+
+Instead of hiding it somewhere in the footer, I would create:
+
+OUR GOVERNANCE
+
+> “Order, Accountability and Faithful Stewardship.”
+
+
+
+Then:
+
+Constitution of Voice on the Rock Evangelical Mission
+
+A formal introduction explaining that the Constitution establishes the governance, doctrine, administration, membership, leadership, discipline, ministry structure and operational principles of the Mission.
+
+Then buttons:
+
+[ READ CONSTITUTION ]
+
+[ DOWNLOAD PDF ]
+
+[ STATEMENT OF FAITH ]
+
+[ LEADERSHIP & GOVERNANCE ]
+
+This immediately gives the organization a much more mature institutional presence.
+
+And we should not invent constitutional provisions. Once you provide/use the actual Constitution, the website wording should follow it exactly.
+
+
+---
+
+3. HOME PAGE SHOULD BE MORE DIGNIFIED
+
+I would change the earlier concept slightly.
+
+Instead of a huge commercial-looking hero with many buttons, use a restrained cinematic opening.
+
+HERO
+
+VOICE ON THE ROCK
+
+STANDING UPON THE ROCK.
+
+PROCLAIMING HIS VOICE.
+
+A Christ-centred evangelical mission committed to the uncompromised Word of God, discipleship, prayer, evangelism and the Great Commission.
+
+Matthew 16:18
+
+> “Upon this rock I will build my church...”
+
+
+
+[ OUR MISSION ]
+[ PLAN A VISIT ]
+
+That is enough.
+
+No twelve buttons competing for attention.
+
+
+---
+
+4. THEN INTRODUCE THE INSTITUTION
+
+WHO WE ARE
+
+Voice on the Rock Evangelical Mission (VOTREM) is a Christ-centred evangelical ministry established to proclaim the Gospel, teach the Word of God, raise disciples and serve humanity for the glory of God.
+
+Then three restrained cards:
+
+CHRIST
+
+Jesus Christ is our foundation.
+
+SCRIPTURE
+
+The Word of God is our authority.
+
+MISSION
+
+The Gospel is our mandate.
+
+
+---
+
+5. LEADERSHIP
+
+This should be a major page—not an afterthought.
+
+OUR LEADERSHIP
+
+LEAD PASTOR
+
+Evang. Ifeanyi Joshua Okonkwo
+
+Then an official photograph, biography and ministry responsibilities.
+
+Underneath:
+
+MISSION LEADERSHIP
+
+Pastoral Leadership
+
+Ministers
+
+Departmental Leadership
+
+Workers
+
+Volunteers
+
+
+The exact offices should be taken from the Constitution rather than guessed.
+
+
+---
+
+6. A SERIOUS "OUR DOCTRINE" PAGE
+
+This is where VOTREM becomes visibly different from a generic ministry website.
+
+WHAT WE BELIEVE
+
+Sections such as:
+
+The Holy Scriptures
+
+The Triune God
+
+Jesus Christ
+
+The Holy Spirit
+
+Salvation
+
+The Church
+
+Water Baptism
+
+The Holy Spirit
+
+Christian Living
+
+The Great Commission
+
+But again, the final wording should come directly from the Constitution/Statement of Faith.
+
+
+---
+
+7. GOVERNANCE
+
+I would create a sophisticated page:
+
+GOVERNANCE & ORDER
+
+> “Let all things be done decently and in order.”
+1 Corinthians 14:40
+
+
+
+Then a visual hierarchy showing the actual structure established by the Constitution.
+
+For example:
+
+GENERAL GOVERNANCE
+
+↓
+
+LEADERSHIP
+
+↓
+
+MINISTRY OFFICES
+
+↓
+
+DEPARTMENTS
+
+↓
+
+WORKERS & VOLUNTEERS
+
+The actual hierarchy will be populated from your Constitution.
+
+This will make the website feel like an established mission, rather than simply an online church flyer.
+
+
+---
+
+8. MEMBERSHIP PORTAL
+
+The forms you've developed should not remain isolated PDF documents.
+
+The website can have:
+
+BECOME PART OF VOTREM
+
+Membership
+
+> Take the first step toward becoming a committed member of the Mission.
+
+
+
+[ MEMBERSHIP REGISTRATION ]
+
+Workers
+
+> Discover your place of service.
+
+
+
+[ WORKER APPLICATION ]
+
+Volunteers
+
+> Use your gifts and skills to serve.
+
+
+
+[ VOLUNTEER REGISTRATION ]
+
+Ministers
+
+> Apply for recognized ministry service.
+
+
+
+[ MINISTER'S APPLICATION ]
+
+This creates an actual digital administrative ecosystem.
+
+
+---
+
+9. THE RESOURCE LIBRARY
+
+Your books should be presented professionally.
+
+VOTREM LIBRARY
+
+Featured Publications
+
+A Bridge to Christ
+
+A Journey of Hope
+
+Then:
+
+Sermons
+Bible Studies
+Devotionals
+Articles
+Publications
+
+This gives the ministry an intellectual and teaching dimension.
+
+
+---
+
+10. EVENTS
+
+Instead of simply listing dates, make it institutional:
+
+PROGRAMMES & EVENTS
+
+WORSHIP SERVICES
+
+BIBLE STUDIES
+
+PRAYER & FASTING
+
+EVANGELISM
+
+CONFERENCES
+
+CRUSADES
+
+OUTREACH
+
+Each event has:
+
+Date | Time | Location | Description | Registration
+
+
+---
+
+11. PRAYER CENTRE
+
+A mature ministry website should make prayer central.
+
+WE ARE READY TO PRAY WITH YOU
+
+> “Call unto me, and I will answer thee...”
+Jeremiah 33:3
+
+
+
+Prayer Request Form
+
+Name
+Phone/Email
+Prayer Category
+Prayer Request
+
+☐ Keep my request confidential.
+
+[ SUBMIT PRAYER REQUEST ]
+
+
+---
+
+12. GIVING
+
+Keep this dignified rather than commercial.
+
+GIVE TO THE WORK
+
+> Your giving supports the proclamation of the Gospel, discipleship, missions, outreach and the work of the Mission.
+
+
+
+Then clearly explain:
+
+Tithes
+Offerings
+Missions
+Welfare
+Projects
+
+The exact categories should follow VOTREM's financial policy/constitution where applicable.
+
+
+---
+
+13. THE DESIGN ITSELF
+
+I would make the visual identity more executive and ecclesiastical.
+
+NAVY
+
+#081D3A
+
+GOLD
+
+#DAAF37
+
+WHITE
+
+#F8F7F2
+
+Typography
+
+Headings: elegant serif
+Body: clean professional sans-serif
+Script font: used extremely sparingly
+
+The existing branding already establishes navy and gold as the principal visual language, so the website should reinforce that identity rather than introduce multiple colors. 
+
+
+---
+
+14. WHAT I WOULD REMOVE
+
+To make it mature, I would deliberately avoid:
+
+❌ Excessive rounded cards
+❌ Too many gradients
+❌ Excessive gold everywhere
+❌ Cartoon-like icons
+❌ Overly large animated text
+❌ Ten different CTA buttons
+❌ Stock-photo-heavy layouts
+❌ Unnecessary popups
+❌ Excessive social-media emphasis
+❌ Informal language
+
+Instead:
+
+Space. Authority. Scripture. Order. Excellence.
+
+
+---
+
+15. THE MAIN NAVIGATION
+
+I would ultimately use:
+
+HOME
+
+ABOUT
+
+BELIEFS
+
+MINISTRIES
+
+TEACHINGS
+
+PROGRAMMES
+
+LIBRARY
+
+MEMBERSHIP
+
+GIVE
+
+CONTACT
+
+And a discreet gold button:
+
+PRAYER REQUEST
+
+The Constitution/Governance can sit under About, while still having a prominent link on the About page.
+
+
+---
+
+The overall impression
+
+When someone visits the redesigned website, the reaction should be:
+
+> “This is an established Christian mission with doctrine, leadership, governance, order, ministry structure and a clear mandate.”
+
+
+
+—not—
+
+> “This is a nice church website.”
+
+
+
+That distinction is important.
+
+The Constitution should become the backbone of the website's institutional structure, while your existing navy-and-gold branding becomes its visual identity. The earlier website concepts already establish the visual foundation; now we should elevate the content and architecture to match the seriousness of the organization. 
+
+If you provide the VOTREM Constitution file, the next step should be to map its actual chapters, offices, doctrine, membership requirements and governance structure into the website before we build the final pages.
