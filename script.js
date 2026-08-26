@@ -1,1 +1,93 @@
-const m=document.getElementById('menu'),n=document.getElementById('nav');if(m)m.onclick=()=>{n.style.display=n.style.display==='flex'?'none':'flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='76px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.padding='10px 5%'};
+/* =========================================
+   VOICE ON THE ROCK
+   WEBSITE JAVASCRIPT
+========================================= */
+
+
+/* MOBILE MENU */
+
+const menuToggle =
+    document.querySelector(".menu-toggle");
+
+const navigation =
+    document.querySelector(".navigation");
+
+
+if (menuToggle) {
+
+    menuToggle.addEventListener("click", () => {
+
+        navigation.classList.toggle("open");
+
+    });
+
+}
+
+
+/* CLOSE MOBILE MENU AFTER CLICKING */
+
+document
+    .querySelectorAll(".navigation a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navigation.classList.remove("open");
+
+        });
+
+    });
+
+
+/* COPY DONATION ACCOUNT NUMBERS */
+
+document
+    .querySelectorAll(".copy-button")
+    .forEach(button => {
+
+        button.addEventListener("click", async () => {
+
+            const number =
+                button.getAttribute("data-copy");
+
+            try {
+
+                await navigator.clipboard.writeText(number);
+
+                const originalText =
+                    button.textContent;
+
+                button.textContent =
+                    "Copied ✓";
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        originalText;
+
+                }, 1800);
+
+            } catch (error) {
+
+                alert(
+                    "Account number: " + number
+                );
+
+            }
+
+        });
+
+    });
+
+
+/* CURRENT YEAR */
+
+const year =
+    document.getElementById("year");
+
+if (year) {
+
+    year.textContent =
+        new Date().getFullYear();
+
+}
