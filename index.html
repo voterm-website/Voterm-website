@@ -1,977 +1,739 @@
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
-.navigation a {
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    color: white;
+    <meta name="description"
+          content="Voice on the Rock Evangelical Mission — Proclaiming Christ, Building Lives.">
 
-    font-size: .92rem;
+    <title>Voice on the Rock Evangelical Mission</title>
 
-    transition: .3s ease;
-}
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-.navigation a:hover {
+<body>
 
-    color: var(--gold-light);
-}
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-.menu-toggle {
+<header class="site-header">
 
-    display: none;
+    <div class="container nav-container">
 
-    background: transparent;
+        <a href="#home" class="brand">
+            <img src="assets/logo.png"
+                 alt="Voice on the Rock Evangelical Mission logo">
+        </a>
 
-    border: 0;
+        <button class="menu-toggle"
+                aria-label="Open navigation">
+            ☰
+        </button>
 
-    color: white;
+        <nav class="navigation">
 
-    font-size: 30px;
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#books">Books</a>
+            <a href="#constitution">Constitution</a>
+            <a href="#mission">Mission</a>
+            <a href="#donate">Donate</a>
+            <a href="#contact">Contact</a>
 
-    cursor: pointer;
-}
+        </nav>
 
+    </div>
 
-/* =========================================
-   HERO
-========================================= */
+</header>
 
-.hero {
 
-    min-height: 90vh;
+<!-- =========================
+     HERO
+========================= -->
 
-    display: flex;
+<main>
 
-    align-items: center;
+<section id="home" class="hero">
 
-    position: relative;
+    <div class="hero-overlay"></div>
 
-    background:
+    <div class="container hero-content">
 
-        linear-gradient(
-            90deg,
-            rgba(3,21,45,.98),
-            rgba(3,21,45,.78),
-            rgba(3,21,45,.35)
-        ),
+        <div class="hero-text">
 
-        url("assets/preaching.jpg")
-        center / cover no-repeat;
-}
+            <p class="eyebrow">
+                EVANGELICAL MISSION
+            </p>
 
-.hero-content {
+            <h1>
+                Voice on the Rock
+            </h1>
 
-    position: relative;
+            <h2>
+                Proclaiming Christ. Building Lives.
+            </h2>
 
-    z-index: 2;
+            <p>
+                A Christ-centered evangelical mission committed
+                to proclaiming the Gospel, teaching biblical truth,
+                building disciples and serving humanity.
+            </p>
 
-    padding-block: 100px;
-}
+            <div class="hero-buttons">
 
-.hero-text {
+                <a href="#mission" class="btn btn-gold">
+                    Explore Our Mission
+                </a>
 
-    max-width: 720px;
+                <a href="#donate" class="btn btn-outline">
+                    Support the Mission
+                </a>
 
-    color: white;
-}
+            </div>
 
-.eyebrow,
-.section-label {
+        </div>
 
-    color: var(--gold-light);
+    </div>
 
-    font-size: .82rem;
+</section>
 
-    letter-spacing: 3px;
 
-    font-weight: bold;
+<!-- =========================
+     WELCOME
+========================= -->
 
-    text-transform: uppercase;
+<section class="section">
 
-    margin-bottom: 14px;
-}
+    <div class="container intro-grid">
 
-.hero h1 {
+        <div class="intro-image">
 
-    font-size:
-        clamp(3rem, 8vw, 6.5rem);
+            <img src="assets/preaching.jpg"
+                 alt="Voice on the Rock ministry">
 
-    line-height: .95;
+        </div>
 
-    margin-bottom: 25px;
+        <div class="intro-content">
 
-    letter-spacing: -2px;
-}
+            <p class="section-label">
+                WELCOME
+            </p>
 
-.hero h2 {
+            <h2>
+                A Voice of Faith,
+                Hope and Truth
+            </h2>
 
-    color: var(--gold-light);
+            <p>
+                Voice on the Rock Evangelical Mission exists
+                to proclaim the message of Jesus Christ and
+                help people discover God's purpose for their lives.
+            </p>
 
-    font-size:
-        clamp(1.3rem, 3vw, 2.2rem);
+            <p>
+                Through evangelism, teaching, discipleship,
+                prayer, service and Christian literature,
+                we seek to build lives upon the unchanging
+                truth of God's Word.
+            </p>
 
-    margin-bottom: 25px;
-}
+            <a href="#about" class="text-link">
+                Learn more about the mission →
+            </a>
 
-.hero p {
+        </div>
 
-    font-family:
-        Arial,
-        sans-serif;
+    </div>
 
-    max-width: 650px;
+</section>
 
-    font-size: 1.08rem;
 
-    color: rgba(255,255,255,.86);
-}
+<!-- =========================
+     ABOUT
+========================= -->
 
-.hero-buttons {
+<section id="about" class="section section-dark">
 
-    margin-top: 35px;
+    <div class="container">
 
-    display: flex;
+        <div class="section-heading">
 
-    gap: 15px;
+            <p class="section-label">
+                ABOUT THE MISSION
+            </p>
 
-    flex-wrap: wrap;
-}
+            <h2>
+                Built on Christ.
+                Driven by Purpose.
+            </h2>
 
+        </div>
 
-/* =========================================
-   BUTTONS
-========================================= */
 
-.btn {
+        <div class="about-grid">
 
-    display: inline-flex;
+            <div class="about-image">
 
-    align-items: center;
+                <img src="assets/pastor.jpg"
+                     alt="Evangelist Joshua Ifeanyi Okonkwo">
 
-    justify-content: center;
+            </div>
 
-    min-height: 52px;
 
-    padding:
-        12px 24px;
+            <div class="about-text">
 
-    border-radius: 6px;
+                <h3>
+                    Evangelist Joshua Ifeanyi Okonkwo
+                </h3>
 
-    font-family: Arial, sans-serif;
+                <p>
+                    Voice on the Rock Evangelical Mission is
+                    dedicated to communicating the Gospel of
+                    Jesus Christ and helping people grow in
+                    faith, character and purpose.
+                </p>
 
-    font-weight: bold;
+                <p>
+                    Our ministry seeks to reach individuals,
+                    families and communities with biblical
+                    teaching, evangelism and practical service.
+                </p>
 
-    transition: .3s ease;
-}
+                <div class="quote-box">
 
-.btn-gold {
+                    <p>
+                        "Proclaiming Christ, Building Lives."
+                    </p>
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
+                </div>
 
-    color: var(--navy);
+            </div>
 
-    box-shadow:
-        0 10px 30px rgba(217,165,43,.25);
-}
+        </div>
 
-.btn-gold:hover {
+    </div>
 
-    transform: translateY(-3px);
-}
+</section>
 
-.btn-outline {
 
-    border:
-        1px solid rgba(255,255,255,.5);
+<!-- =========================
+     MISSION
+========================= -->
 
-    color: white;
-}
+<section id="mission" class="section">
 
-.btn-outline:hover {
+    <div class="container">
 
-    background: white;
+        <div class="section-heading centered">
 
-    color: var(--navy);
-}
+            <p class="section-label">
+                OUR MISSION
+            </p>
 
-.btn-small {
+            <h2>
+                What We Stand For
+            </h2>
 
-    min-height: 44px;
+        </div>
 
-    background: var(--navy);
 
-    color: white;
+        <div class="mission-grid">
 
-    padding:
-        9px 18px;
+            <article class="mission-card">
 
-    font-size: .9rem;
-}
+                <div class="mission-icon">
+                    01
+                </div>
 
+                <h3>
+                    Winning Souls
+                </h3>
 
-/* =========================================
-   SECTIONS
-========================================= */
+                <p>
+                    Proclaiming the Gospel of Jesus Christ
+                    and reaching people with the message
+                    of salvation.
+                </p>
 
-.section {
+            </article>
 
-    padding:
-        100px 0;
-}
 
-.section-dark {
+            <article class="mission-card">
 
-    background: var(--navy);
+                <div class="mission-icon">
+                    02
+                </div>
 
-    color: white;
-}
+                <h3>
+                    Teaching Truth
+                </h3>
 
-.section-light {
+                <p>
+                    Teaching God's Word faithfully and
+                    encouraging believers to grow in
+                    biblical understanding.
+                </p>
 
-    background: var(--cream);
-}
+            </article>
 
-.section-heading {
 
-    max-width: 750px;
+            <article class="mission-card">
 
-    margin-bottom: 55px;
-}
+                <div class="mission-icon">
+                    03
+                </div>
 
-.section-heading.centered {
+                <h3>
+                    Building Disciples
+                </h3>
 
-    text-align: center;
+                <p>
+                    Helping believers develop mature,
+                    Christ-centered lives of faith and service.
+                </p>
 
-    margin-inline: auto;
-}
+            </article>
 
-.section-heading h2 {
 
-    font-size:
-        clamp(2.2rem, 5vw, 4rem);
+            <article class="mission-card">
 
-    line-height: 1.1;
+                <div class="mission-icon">
+                    04
+                </div>
 
-    margin-bottom: 20px;
-}
+                <h3>
+                    Serving Humanity
+                </h3>
 
-.section-heading p:not(.section-label) {
+                <p>
+                    Demonstrating Christian love through
+                    practical service and compassionate action.
+                </p>
 
-    font-family: Arial, sans-serif;
+            </article>
 
-    color: var(--muted);
-}
+        </div>
 
-.section-dark .section-heading p:not(.section-label) {
+    </div>
 
-    color: rgba(255,255,255,.7);
-}
+</section>
 
 
-/* =========================================
-   INTRO
-========================================= */
+<!-- =========================
+     BOOKS
+========================= -->
 
-.intro-grid {
+<section id="books" class="section section-light">
 
-    display: grid;
+    <div class="container">
 
-    grid-template-columns:
-        1fr 1fr;
+        <div class="section-heading">
 
-    gap: 70px;
+            <p class="section-label">
+                CHRISTIAN LITERATURE
+            </p>
 
-    align-items: center;
-}
+            <h2>
+                Books by Evangelist Joshua
+            </h2>
 
-.intro-image img {
+            <p>
+                Resources written to encourage faith,
+                purpose and spiritual transformation.
+            </p>
 
-    width: 100%;
+        </div>
 
-    max-height: 620px;
 
-    object-fit: cover;
+        <div class="books-grid">
 
-    border-radius: var(--radius);
 
-    box-shadow: var(--shadow);
-}
+            <!-- BOOK ONE -->
 
-.intro-content h2 {
+            <article class="book-card">
 
-    font-size:
-        clamp(2.3rem, 5vw, 4rem);
+                <img src="assets/journey-of-hope.jpg"
+                     alt="A Journey of Hope book cover">
 
-    line-height: 1.1;
+                <div class="book-info">
 
-    margin-bottom: 25px;
-}
+                    <p class="book-number">
+                        BOOK 01
+                    </p>
 
-.intro-content p {
+                    <h3>
+                        A Journey of Hope
+                    </h3>
 
-    font-family: Arial, sans-serif;
+                    <p>
+                        Finding Strength, Purpose,
+                        and Peace in God's Promises.
+                    </p>
 
-    color: var(--muted);
+                    <a href="assets/journey-of-hope.pdf"
+                       class="btn btn-small"
+                       target="_blank">
 
-    margin-bottom: 18px;
-}
+                        Read / Download
 
-.text-link {
+                    </a>
 
-    color: var(--navy);
+                </div>
 
-    font-weight: bold;
+            </article>
 
-    display: inline-block;
 
-    margin-top: 10px;
-}
+            <!-- BOOK TWO -->
 
+            <article class="book-card">
 
-/* =========================================
-   ABOUT
-========================================= */
+                <img src="assets/bridge-to-christ.jpg"
+                     alt="A Bridge to Christ book cover">
 
-.about-grid {
+                <div class="book-info">
 
-    display: grid;
+                    <p class="book-number">
+                        BOOK 02
+                    </p>
 
-    grid-template-columns:
-        380px 1fr;
+                    <h3>
+                        A Bridge to Christ
+                    </h3>
 
-    gap: 70px;
+                    <p>
+                        A transformative journey from
+                        where you are to the destiny
+                        God has for you.
+                    </p>
 
-    align-items: center;
-}
+                    <a href="assets/bridge-to-christ.pdf"
+                       class="btn btn-small"
+                       target="_blank">
 
-.about-image img {
+                        Read / Download
 
-    width: 100%;
+                    </a>
 
-    border-radius: var(--radius);
+                </div>
 
-    box-shadow: var(--shadow);
-}
+            </article>
 
-.about-text h3 {
 
-    color: var(--gold-light);
+        </div>
 
-    font-size: 2rem;
+    </div>
 
-    margin-bottom: 20px;
-}
+</section>
 
-.about-text p {
 
-    font-family: Arial, sans-serif;
+<!-- =========================
+     CONSTITUTION
+========================= -->
 
-    color: rgba(255,255,255,.78);
+<section id="constitution"
+         class="section constitution-section">
 
-    margin-bottom: 18px;
-}
+    <div class="container constitution-box">
 
-.quote-box {
+        <div>
 
-    border-left:
-        3px solid var(--gold);
+            <p class="section-label">
+                GOVERNANCE
+            </p>
 
-    padding:
-        20px 25px;
+            <h2>
+                Constitution of
+                Voice on the Rock
+                Evangelical Mission
+            </h2>
 
-    margin-top: 30px;
+            <p>
+                Our constitution provides the framework,
+                principles and governance structure guiding
+                the mission.
+            </p>
 
-    background:
-        rgba(255,255,255,.04);
-}
+        </div>
 
-.quote-box p {
 
-    color: var(--gold-light);
+        <div class="constitution-action">
 
-    font-family: Georgia, serif;
+            <a href="assets/constitution.pdf"
+               target="_blank"
+               class="btn btn-gold">
 
-    font-size: 1.3rem;
+                View Constitution
 
-    margin: 0;
-}
+            </a>
 
+        </div>
 
-/* =========================================
-   MISSION
-========================================= */
+    </div>
 
-.mission-grid {
+</section>
 
-    display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+<!-- =========================
+     DONATE
+========================= -->
 
-    gap: 20px;
-}
+<section id="donate" class="section donate-section">
 
-.mission-card {
+    <div class="container">
 
-    padding: 35px 25px;
+        <div class="section-heading centered">
 
-    border:
-        1px solid #e6e6e6;
+            <p class="section-label">
+                SUPPORT THE WORK
+            </p>
 
-    border-radius: var(--radius);
+            <h2>
+                Partner With the Mission
+            </h2>
 
-    background: white;
+            <p>
+                Your support helps us continue the work of
+                evangelism, discipleship, Christian literature
+                and service to humanity.
+            </p>
 
-    transition: .3s ease;
-}
+        </div>
 
-.mission-card:hover {
 
-    transform: translateY(-8px);
+        <div class="donation-grid">
 
-    box-shadow: var(--shadow);
-}
 
-.mission-icon {
+            <!-- ACCESS BANK -->
 
-    width: 52px;
+            <div class="donation-card">
 
-    height: 52px;
+                <span class="donation-label">
+                    BANK TRANSFER
+                </span>
 
-    display: grid;
+                <h3>
+                    Access Bank
+                </h3>
 
-    place-items: center;
+                <p>
+                    <strong>Account Name</strong><br>
+                    Ifeanyi Joshua Okonkwo
+                </p>
 
-    border-radius: 50%;
+                <p>
+                    <strong>Account Number</strong><br>
 
-    background: var(--navy);
+                    <span class="account-number">
+                        0063209958
+                    </span>
+                </p>
 
-    color: var(--gold-light);
+                <button class="copy-button"
+                        data-copy="0063209958">
 
-    font-weight: bold;
+                    Copy Account Number
 
-    margin-bottom: 25px;
-}
+                </button>
 
-.mission-card h3 {
+            </div>
 
-    margin-bottom: 12px;
 
-    font-size: 1.35rem;
-}
+            <!-- MONIEPOINT -->
 
-.mission-card p {
+            <div class="donation-card">
 
-    font-family: Arial, sans-serif;
+                <span class="donation-label">
+                    DIGITAL PAYMENT
+                </span>
 
-    color: var(--muted);
+                <h3>
+                    Moniepoint
+                </h3>
 
-    font-size: .95rem;
-}
+                <p>
+                    <strong>Account Name</strong><br>
+                    Joshua Okonkwo / Voice on the Rock
+                </p>
 
+                <p>
+                    <strong>Account Number</strong><br>
 
-/* =========================================
-   BOOKS
-========================================= */
+                    <span class="account-number">
+                        7062073984
+                    </span>
+                </p>
 
-.books-grid {
+                <button class="copy-button"
+                        data-copy="7062073984">
 
-    display: grid;
+                    Copy Account Number
 
-    grid-template-columns:
-        repeat(2, 1fr);
+                </button>
 
-    gap: 35px;
-}
+            </div>
 
-.book-card {
 
-    background: white;
+        </div>
 
-    border-radius: var(--radius);
 
-    overflow: hidden;
+        <p class="donation-note">
 
-    box-shadow:
-        0 10px 40px rgba(0,0,0,.08);
+            Thank you for supporting the work of the Gospel.
 
-    display: grid;
+        </p>
 
-    grid-template-columns:
-        220px 1fr;
-}
+    </div>
 
-.book-card img {
+</section>
 
-    width: 100%;
 
-    height: 100%;
+<!-- =========================
+     CONTACT
+========================= -->
 
-    object-fit: cover;
-}
+<section id="contact" class="section section-dark">
 
-.book-info {
+    <div class="container">
 
-    padding: 35px;
-}
+        <div class="section-heading centered">
 
-.book-number {
+            <p class="section-label">
+                CONNECT WITH US
+            </p>
 
-    color: var(--gold);
+            <h2>
+                Stay Connected
+            </h2>
 
-    font-family: Arial, sans-serif;
+            <p>
+                Follow Voice on the Rock Evangelical Mission
+                across our social platforms.
+            </p>
 
-    font-size: .75rem;
+        </div>
 
-    font-weight: bold;
 
-    letter-spacing: 2px;
-}
+        <div class="social-grid">
 
-.book-info h3 {
 
-    font-size: 2rem;
+            <a href="#"
+               class="social-card">
+                <strong>Facebook</strong>
+                <span>Voice on the Rock Mission</span>
+            </a>
 
-    margin:
-        10px 0 15px;
-}
 
-.book-info p:not(.book-number) {
+            <a href="#"
+               class="social-card">
+                <strong>YouTube</strong>
+                <span>Voice on the Rock Mission</span>
+            </a>
 
-    font-family: Arial, sans-serif;
 
-    color: var(--muted);
+            <a href="https://x.com/voiceontherock"
+               target="_blank"
+               class="social-card">
+                <strong>X</strong>
+                <span>@voiceontherock</span>
+            </a>
 
-    margin-bottom: 25px;
-}
 
+            <a href="https://www.tiktok.com/@voice.on.the.rock"
+               target="_blank"
+               class="social-card">
+                <strong>TikTok</strong>
+                <span>@voice.on.the.rock</span>
+            </a>
 
-/* =========================================
-   CONSTITUTION
-========================================= */
 
-.constitution-section {
+            <a href="https://www.instagram.com/voiceontherockevangelical/"
+               target="_blank"
+               class="social-card">
+                <strong>Instagram</strong>
+                <span>@voiceontherockevangelical</span>
+            </a>
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy),
-            var(--navy-3)
-        );
 
-    color: white;
-}
+            <a href="https://wa.me/2347062073984"
+               target="_blank"
+               class="social-card">
+                <strong>WhatsApp</strong>
+                <span>07062073984</span>
+            </a>
 
-.constitution-box {
+        </div>
 
-    border:
-        1px solid var(--border);
 
-    border-radius: var(--radius);
+        <div class="contact-details">
 
-    padding: 55px;
+            <p>
+                Email:
+                <a href="mailto:voiceontherock@yahoo.com">
+                    voiceontherock@yahoo.com
+                </a>
+            </p>
 
-    display: flex;
+            <p>
+                Phone:
+                <a href="tel:+2347062073984">
+                    07062073984
+                </a>
+            </p>
 
-    align-items: center;
+        </div>
 
-    justify-content: space-between;
+    </div>
 
-    gap: 40px;
-}
+</section>
 
-.constitution-box h2 {
+</main>
 
-    max-width: 720px;
 
-    font-size:
-        clamp(2rem, 5vw, 3.5rem);
+<!-- =========================
+     FOOTER
+========================= -->
 
-    line-height: 1.1;
+<footer class="footer">
 
-    margin-bottom: 20px;
-}
+    <div class="container footer-content">
 
-.constitution-box p:not(.section-label) {
+        <div>
 
-    color: rgba(255,255,255,.7);
+            <img src="assets/logo.png"
+                 alt="Voice on the Rock"
+                 class="footer-logo">
 
-    font-family: Arial, sans-serif;
+            <p>
+                Voice on the Rock Evangelical Mission
+            </p>
 
-    max-width: 650px;
-}
+        </div>
 
 
-/* =========================================
-   DONATIONS
-========================================= */
+        <div>
 
-.donate-section {
+            <p>
+                Proclaiming Christ, Building Lives.
+            </p>
 
-    background: var(--cream);
-}
+            <p class="copyright">
+                © <span id="year"></span>
+                Voice on the Rock Evangelical Mission.
+                All rights reserved.
+            </p>
 
-.donation-grid {
+        </div>
 
-    display: grid;
+    </div>
 
-    grid-template-columns:
-        repeat(2, 1fr);
+</footer>
 
-    gap: 25px;
 
-    max-width: 900px;
+<script src="script.js"></script>
 
-    margin:
-        0 auto;
-}
-
-.donation-card {
-
-    background: white;
-
-    border-radius: var(--radius);
-
-    padding: 40px;
-
-    border:
-        1px solid #e8e3d8;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.05);
-}
-
-.donation-label {
-
-    color: var(--gold);
-
-    font-family: Arial, sans-serif;
-
-    font-size: .75rem;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-}
-
-.donation-card h3 {
-
-    font-size: 2rem;
-
-    margin:
-        10px 0 25px;
-}
-
-.donation-card p {
-
-    font-family: Arial, sans-serif;
-
-    margin-bottom: 20px;
-}
-
-.account-number {
-
-    display: inline-block;
-
-    font-size: 1.5rem;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    color: var(--navy);
-
-    margin-top: 5px;
-}
-
-.copy-button {
-
-    border: 0;
-
-    background: var(--navy);
-
-    color: white;
-
-    padding:
-        12px 18px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
-}
-
-.copy-button:hover {
-
-    background: var(--navy-3);
-}
-
-.donation-note {
-
-    text-align: center;
-
-    margin-top: 35px;
-
-    font-family: Arial, sans-serif;
-
-    color: var(--muted);
-}
-
-
-/* =========================================
-   SOCIAL
-========================================= */
-
-.social-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-.social-card {
-
-    padding: 25px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 12px;
-
-    transition: .3s ease;
-}
-
-.social-card:hover {
-
-    background:
-        rgba(255,255,255,.05);
-
-    transform: translateY(-4px);
-}
-
-.social-card strong {
-
-    display: block;
-
-    color: var(--gold-light);
-
-    font-size: 1.2rem;
-
-    margin-bottom: 5px;
-}
-
-.social-card span {
-
-    color:
-        rgba(255,255,255,.65);
-
-    font-family: Arial, sans-serif;
-
-    font-size: .9rem;
-}
-
-.contact-details {
-
-    margin-top: 50px;
-
-    padding-top: 30px;
-
-    border-top:
-        1px solid var(--border);
-
-    text-align: center;
-}
-
-.contact-details p {
-
-    margin-bottom: 8px;
-
-    color:
-        rgba(255,255,255,.75);
-}
-
-.contact-details a {
-
-    color: var(--gold-light);
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-.footer {
-
-    background: #020d1c;
-
-    color: white;
-
-    padding:
-        55px 0;
-}
-
-.footer-content {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 30px;
-}
-
-.footer-logo {
-
-    width: 150px;
-
-    margin-bottom: 12px;
-}
-
-.footer p {
-
-    color:
-        rgba(255,255,255,.65);
-
-    font-family: Arial, sans-serif;
-}
-
-.copyright {
-
-    font-size: .8rem;
-
-    margin-top: 10px;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .navigation {
-
-        position: absolute;
-
-        top: 82px;
-
-        left: 0;
-
-        right: 0;
-
-        background: var(--navy);
-
-        display: none;
-
-        flex-direction: column;
-
-        padding: 25px;
-
-        border-bottom:
-            1px solid var(--border);
-    }
-
-    .navigation.open {
-
-        display: flex;
-    }
-
-    .menu-toggle {
-
-        display: block;
-    }
-
-    .intro-grid,
-    .about-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-    }
-
-    .mission-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .books-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-    .social-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .constitution-box {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        padding: 35px;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .container {
-
-        width:
-            min(
-                calc(100% - 28px),
-                var(--max-width)
-            );
-    }
-
-    .section {
-
-        padding: 70px 0;
-    }
-
-    .hero {
-
-        min-height: 80vh;
-    }
-
-    .hero-content {
-
-        padding-block: 80px;
-    }
-
-    .mission-grid,
-    .donation-grid,
-    .social-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-    .book-card {
-
-        grid-template-columns: 1fr;
-    }
-
-    .book-card img {
-
-        height: 430px;
-    }
-
-    .footer-content {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-}
+</body>
+</html>
