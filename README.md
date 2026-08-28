@@ -10,7 +10,7 @@ Folders:
 
 DONATION ACCOUNTS INCLUDED:
 1. Bank: Accessbank
-   Account Number: 0063209958
+   Account Number: 0063209953
    Account Name: Ifeanyi Joshua Okonkwo
 
 2. Bank: Monies-points
