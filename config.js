@@ -1,3 +1,7 @@
-// CMS connection. Leave blank until Supabase is configured.
-// NEVER put a Supabase service_role key here.
-window.VOTREM_SUPABASE={url:"",anonKey:""};
+// CMS connection. Supabase configuration.
+// NEVER put a Supabase secret/service_role key here.
+
+window.VOTREM_SUPABASE = {
+  url: "https://wjlvdshfuwanutnmvlss.supabase.co",
+  anonKey: "PASTE_YOUR_PUBLISHABLE_KEY_HERE"
+};
