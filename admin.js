@@ -8,7 +8,7 @@ const urlInput = document.getElementById("url");
 const addButton = document.getElementById("add");
 const list = document.getElementById("list");
 
-// Load Supabase client
+// Connect to Supabase
 const supabase = window.supabase.createClient(
   window.VOTREM_SUPABASE.url,
   window.VOTREM_SUPABASE.anonKey
@@ -152,5 +152,5 @@ function escapeHtml(text) {
 }
 
 
-// Start
+// Start the Admin panel
 loadContent();
