@@ -3,5 +3,5 @@
 
 window.VOTREM_SUPABASE = {
   url: "https://wjlvdshfuwanutnmvlss.supabase.co",
-  anonKey: "PASTE_YOUR_PUBLISHABLE_KEY_HERE"
+  anonKey:sb_publishable_ONKh2j1aKpCcdW1gmek0VA_pDOmZaWD
 };
