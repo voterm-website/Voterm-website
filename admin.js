@@ -1,6 +1,15 @@
-const CONTENT_ID = "main";
+const supabaseUrl = window.VOTREM_SUPABASE?.url;
+const supabaseKey = window.VOTREM_SUPABASE?.anonKey;
 
-// Get references to the Admin page elements
+if (!supabaseUrl || !supabaseKey) {
+  alert("Supabase configuration is missing. Check config.js");
+}
+
+const supabaseClient = supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+
 const titleInput = document.getElementById("title");
 const descriptionInput = document.getElementById("description");
 const imageInput = document.getElementById("image");
@@ -8,149 +17,108 @@ const urlInput = document.getElementById("url");
 const addButton = document.getElementById("add");
 const list = document.getElementById("list");
 
-// Connect to Supabase
-const supabase = window.supabase.createClient(
-  window.VOTREM_SUPABASE.url,
-  window.VOTREM_SUPABASE.anonKey
-);
-
-let data = {
-  media: []
-};
-
-
-// Load content from Supabase
-async function loadContent() {
-  const { data: result, error } = await supabase
+async function loadUpdates() {
+  const { data, error } = await supabaseClient
     .from("site_content")
     .select("*")
-    .eq("id", CONTENT_ID)
-    .maybeSingle();
+    .eq("id", "updates")
+    .single();
 
-  if (error) {
-    console.error("Error loading content:", error);
+  if (error && error.code !== "PGRST116") {
+    console.error(error);
     return;
   }
 
-  if (result && result.content) {
-    data = result.content;
-  } else {
-    data = {
-      media: []
-    };
+  if (data && data.content && data.content.media) {
+    render(data.content.media);
   }
-
-  render();
 }
 
-
-// Save content to Supabase
-async function saveContent() {
-  const { error } = await supabase
-    .from("site_content")
-    .upsert(
-      {
-        id: CONTENT_ID,
-        content: data,
-        updated_at: new Date().toISOString()
-      },
-      {
-        onConflict: "id"
-      }
-    );
-
-  if (error) {
-    console.error("Error saving content:", error);
-    alert("Could not save to Supabase: " + error.message);
-    return false;
-  }
-
-  return true;
-}
-
-
-// Display all updates
-function render() {
+function render(items) {
   list.innerHTML = "";
 
-  if (!data.media || data.media.length === 0) {
-    list.innerHTML = "<p>No updates yet.</p>";
-    return;
-  }
-
-  data.media.forEach((item, index) => {
+  items.forEach((item) => {
     const div = document.createElement("div");
 
     div.innerHTML = `
-      <p><b>${escapeHtml(item.title)}</b></p>
-      <p>${escapeHtml(item.description || "")}</p>
-      <p>${escapeHtml(item.image || "")}</p>
-      <button data-index="${index}">Remove</button>
+      <h3>${item.title}</h3>
+      <p>${item.description || ""}</p>
+      <img src="${item.image}" style="max-width:200px;">
+      ${item.url ? `<p><a href="${item.url}" target="_blank">View Link</a></p>` : ""}
     `;
-
-    const button = div.querySelector("button");
-
-    button.onclick = async () => {
-      if (!confirm("Remove this update?")) return;
-
-      data.media.splice(index, 1);
-
-      const saved = await saveContent();
-
-      if (saved) {
-        render();
-      }
-    };
 
     list.appendChild(div);
   });
 }
 
-
-// Add a new update
-addButton.onclick = async () => {
+addButton.addEventListener("click", async () => {
   const title = titleInput.value.trim();
   const description = descriptionInput.value.trim();
   const image = imageInput.value.trim();
   const url = urlInput.value.trim();
 
   if (!title || !image) {
-    alert("Please enter both a title and an image URL.");
+    alert("Please enter both an Update title and Image URL.");
     return;
   }
 
-  data.media.push({
-    title,
-    description,
-    image,
-    url
-  });
+  addButton.disabled = true;
+  addButton.textContent = "Saving...";
 
-  const saved = await saveContent();
+  try {
+    const { data: existing, error: fetchError } = await supabaseClient
+      .from("site_content")
+      .select("*")
+      .eq("id", "updates")
+      .single();
 
-  if (saved) {
+    if (fetchError && fetchError.code !== "PGRST116") {
+      throw fetchError;
+    }
+
+    let media = [];
+
+    if (existing && existing.content && existing.content.media) {
+      media = existing.content.media;
+    }
+
+    media.unshift({
+      title: title,
+      description: description,
+      image: image,
+      url: url
+    });
+
+    const { error: saveError } = await supabaseClient
+      .from("site_content")
+      .upsert({
+        id: "updates",
+        content: {
+          media: media
+        },
+        updated_at: new Date().toISOString()
+      });
+
+    if (saveError) {
+      throw saveError;
+    }
+
+    alert("Update saved successfully!");
+
     titleInput.value = "";
     descriptionInput.value = "";
     imageInput.value = "";
     urlInput.value = "";
 
-    render();
+    render(media);
 
-    alert("Update saved successfully!");
+  } catch (error) {
+    console.error(error);
+    alert("Error saving update: " + error.message);
+  } finally {
+    addButton.disabled = false;
+    addButton.textContent = "Add Update";
   }
-};
+});
 
-
-// Prevent HTML injection in displayed text
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-
-// Start the Admin panel
-loadContent();
+loadUpdates();
