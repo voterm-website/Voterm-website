@@ -1,1 +1,284 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VOTREM Admin</title><link rel="stylesheet" href="admin.css"></head><body><main><header><b>VOTREM ADMIN</b><a href="index.html">View Website</a></header><section class="panel"><h1>Content Management Dashboard</h1><p>This is the CMS control panel. It becomes an online multi-device CMS after Supabase is configured.</p><input id="title" placeholder="Update title"><textarea id="description" placeholder="Description"></textarea><input id="image" placeholder="Image path, e.g. assets/outreach.jpg"><input id="url" placeholder="Video/post URL (optional)"><button id="add">Add Update</button><div id="list"></div></section><section class="panel"><h2>Donation accounts</h2><p><b>Access Bank:</b> 0063209953 — Ifeanyi Joshua Okonkwo</p><p><b>Moniepoint:</b> 7062073984 — Joshua Okonkwo / Voice on the Rock</p></section><section class="panel"><h2>Social accounts</h2><p>Facebook · YouTube · X · TikTok · Instagram · WhatsApp · Telegram</p></section><p class="note">For real secure editing from any phone, configure Supabase using supabase-schema.sql and config.js. Never expose a service_role key.</p></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>VOTREM Admin</title>
+
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+
+.admin-wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.admin-card{
+  background:#fff;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.admin-card h2{
+  margin-top:0;
+}
+
+.admin-card input,
+.admin-card textarea,
+.admin-card select{
+  width:100%;
+  padding:12px;
+  margin:8px 0 15px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  box-sizing:border-box;
+}
+
+.admin-card textarea{
+  min-height:110px;
+}
+
+.admin-item{
+  border-bottom:1px solid #ddd;
+  padding:15px 0;
+}
+
+.admin-item:last-child{
+  border-bottom:none;
+}
+
+.admin-image{
+  max-width:150px;
+  border-radius:6px;
+  margin-top:10px;
+}
+
+.hidden{
+  display:none;
+}
+
+.status{
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:6px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="admin-wrap">
+
+<h1>VOTREM Content Management</h1>
+
+<p>
+Manage Teachings, Programmes, Updates and other website content.
+</p>
+
+
+<!-- LOGIN -->
+
+<section id="loginBox" class="admin-card">
+
+<h2>Administrator Login</h2>
+
+<div id="loginStatus"></div>
+
+<label>Email</label>
+
+<input
+id="email"
+type="email"
+placeholder="Administrator email"
+>
+
+<label>Password</label>
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+>
+
+<button id="login">
+Login
+</button>
+
+</section>
+
+
+
+<!-- ADMIN DASHBOARD -->
+
+<section id="dashboard" class="hidden">
+
+
+<div class="admin-card">
+
+<button id="logout">
+Logout
+</button>
+
+</div>
+
+
+
+<!-- ADD CONTENT -->
+
+<section class="admin-card">
+
+<h2>Publish Content</h2>
+
+<label>Content Type</label>
+
+<select id="contentType">
+
+<option value="updates">
+Updates & Announcements
+</option>
+
+<option value="teachings">
+Teachings
+</option>
+
+<option value="programmes">
+Programmes & Events
+</option>
+
+</select>
+
+
+<label>Title</label>
+
+<input
+id="title"
+type="text"
+placeholder="Enter title"
+>
+
+
+<label>Category</label>
+
+<input
+id="category"
+type="text"
+placeholder="Example: Bible Study, Prayer, Conference"
+>
+
+
+<label>Description</label>
+
+<textarea
+id="description"
+placeholder="Write description"
+></textarea>
+
+
+<label>Date</label>
+
+<input
+id="date"
+type="text"
+placeholder="Example: 25 December 2026"
+>
+
+
+<label>Location</label>
+
+<input
+id="location"
+type="text"
+placeholder="Programme location"
+>
+
+
+<label>Image URL</label>
+
+<input
+id="image"
+type="text"
+placeholder="Paste Supabase image URL"
+>
+
+
+<label>Video / Post URL</label>
+
+<input
+id="url"
+type="text"
+placeholder="YouTube, Facebook, Instagram or other link"
+>
+
+
+<button id="add">
+Publish
+</button>
+
+</section>
+
+
+
+<!-- CONTENT LIST -->
+
+<section class="admin-card">
+
+<h2>Published Content</h2>
+
+<div id="list">
+Loading...
+</div>
+
+</section>
+
+
+
+<!-- PRIVATE REQUESTS -->
+
+<section class="admin-card">
+
+<h2>Prayer Requests</h2>
+
+<button id="loadPrayer">
+Load Prayer Requests
+</button>
+
+<div id="prayerList"></div>
+
+</section>
+
+
+
+<section class="admin-card">
+
+<h2>Membership & Service Requests</h2>
+
+<button id="loadMembership">
+Load Requests
+</button>
+
+<div id="membershipList"></div>
+
+</section>
+
+
+</section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
