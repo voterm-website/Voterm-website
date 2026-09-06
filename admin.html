@@ -277,7 +277,107 @@ Load Requests
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script src="config.js"></script>
+
+<script>
+
+const teachingClient =
+  supabase.createClient(
+    window.VOTREM_SUPABASE.url,
+    window.VOTREM_SUPABASE.anonKey
+  );
+
+
+async function loadTeachings() {
+
+  const grid =
+    document.querySelector(
+      ".grid.grid-3"
+    );
+
+
+  const {
+    data,
+    error
+  } =
+    await teachingClient
+      .from(
+        "site_content"
+      )
+      .select("*")
+      .eq(
+        "id",
+        "teachings"
+      )
+      .maybeSingle();
+
+
+  if (
+    error ||
+    !data?.content?.items
+  ) return;
+
+
+  const items =
+    data.content.items;
+
+
+  items.forEach(
+    item => {
+
+      const article =
+        document.createElement(
+          "article"
+        );
+
+
+      article.className =
+        "card";
+
+
+      article.innerHTML = `
+
+        ${item.category
+          ? `<span class="tag">${item.category}</span>`
+          : ""
+        }
+
+        <h3>
+          ${item.title}
+        </h3>
+
+        <p>
+          ${item.description || ""}
+        </p>
+
+        ${item.image
+          ? `<img src="${item.image}" style="width:100%;margin-top:15px;border-radius:8px;">`
+          : ""
+        }
+
+        ${item.url
+          ? `<p><a class="btn" href="${item.url}" target="_blank">Watch / Read</a></p>`
+          : ""
+        }
+
+      `;
+
+
+      grid.prepend(
+        article
+      );
+
+    }
+  );
+
+}
+
+
+loadTeachings();
+
+</script>
 <script src="admin.js"></script>
 
 </body>
