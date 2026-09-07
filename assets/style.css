@@ -7,3 +7,230 @@
   height: 55px;
   object-fit: contain;
 }
+/* ==============================
+   VOICE ON THE ROCK BRAND DESIGN
+   ============================== */
+
+/* Main ministry colours */
+:root {
+  --navy: #071a35;
+  --navy-light: #102a4d;
+  --cream: #f7f3eb;
+  --gold: #c99a2e;
+  --white: #ffffff;
+}
+
+
+/* ==============================
+   HEADER
+   ============================== */
+
+header {
+  background: var(--navy);
+  border-bottom: 2px solid var(--gold);
+}
+
+.brand {
+  color: var(--cream);
+}
+
+.brandtext {
+  color: var(--cream);
+}
+
+.brandtext small {
+  color: var(--white);
+}
+
+
+/* Small logo in header */
+
+.logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+
+/* Navigation */
+
+.nav a {
+  color: var(--cream);
+}
+
+.nav a:hover {
+  color: var(--gold);
+}
+
+
+/* Mobile menu button */
+
+#menu {
+  color: var(--cream);
+}
+
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+
+.hero-home {
+  background:
+    linear-gradient(
+      rgba(7, 26, 53, 0.88),
+      rgba(7, 26, 53, 0.82)
+    ),
+    url("preaching-photo.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: var(--cream);
+}
+
+
+/* Large circular logo */
+
+.hero-logo-circle {
+  width: 190px;
+  height: 190px;
+
+  margin: 0 auto 30px;
+
+  border-radius: 50%;
+
+  background: var(--navy);
+
+  border: 4px solid var(--gold);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+.hero-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Hero ministry name */
+
+.hero-home .eyebrow {
+  color: var(--cream);
+}
+
+
+/* Main heading */
+
+.hero-home h1 {
+  color: var(--cream);
+}
+
+
+/* Highlighted words */
+
+.hero-home h1 span {
+  color: var(--white);
+}
+
+
+/* Hero paragraph */
+
+.hero-home p {
+  color: var(--cream);
+}
+
+
+/* Buttons */
+
+.btn {
+  background: var(--cream);
+  color: var(--navy);
+  border: 2px solid var(--cream);
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+.btn.light {
+  background: transparent;
+  color: var(--cream);
+  border: 2px solid var(--cream);
+}
+
+.btn.light:hover {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+
+/* ==============================
+   OTHER WEBSITE SECTIONS
+   ============================== */
+
+.section {
+  background: var(--cream);
+}
+
+.section h2,
+.section h3 {
+  color: var(--navy);
+}
+
+.card {
+  background: var(--white);
+  border-top: 3px solid var(--gold);
+}
+
+.tag {
+  color: var(--gold);
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+footer {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+footer a {
+  color: var(--cream);
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 620px) {
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-logo-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  }
