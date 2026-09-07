@@ -1,1 +1,3 @@
-window.VOTREM_CONFIG={SUPABASE_URL:'https://wjlvdshfuwanutnmvlss.supabase.co',SUPABASE_ANON_KEY:'sb_publishable_ONKh2j1aKpCcdW1gmek0VA_pDOmZaWD'}
+// CMS connection. Leave blank until Supabase is configured.
+// NEVER put a Supabase service_role key here.
+window.VOTREM_SUPABASE={url:"",anonKey:""};

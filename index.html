@@ -1,47 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Voice On The Rock Evangelical Mission">
-  <title>Voice On The Rock Evangelical Mission</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<header class="site-header">
-  <div class="nav wrap">
-    <a class="brand" href="index.html" aria-label="Voice On The Rock Home">
-      <img src="assets/logo.png" alt="Voice On The Rock Evangelical Mission logo" class="logo">
-      <div class="brand-text"><strong>VOICE ON THE ROCK</strong><small>EVANGELICAL MISSION</small></div>
-    </a>
-    <button id="menu" class="menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav id="nav" class="site-nav">
-      <a href="index.html">Home</a><a href="about.html">About</a><a href="beliefs.html">Beliefs</a><a href="ministries.html">Ministries</a><a href="teachings.html">Teachings</a><a href="programmes.html">Programmes</a><a href="library.html">Library</a><a href="membership.html">Membership</a><a class="nav-cta" href="prayer.html">Prayer Request</a>
-    </nav>
-  </div>
-</header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Voice on the Rock Evangelical Mission</title><link rel="stylesheet" href="styles.css"></head><body>
+<header><a class="brand" href="#home"><img src="assets/logo.png" alt="VOTREM logo"><span>VOICE ON THE ROCK<br><small>EVANGELICAL MISSION</small></span></a><button id="menu">☰</button><nav id="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#departments">Departments</a><a href="#books">Books</a><a href="#constitution">Constitution</a><a href="#media">Media</a><a href="#give">Give</a><a href="#contact">Contact</a></nav></header>
 <main>
-<section class="hero-home">
-  <div class="hero-overlay"></div>
-  <div class="hero-content wrap">
-    <img src="assets/logo.png" alt="Voice On The Rock Evangelical Mission logo" class="hero-logo">
-    <div class="eyebrow">VOICE ON THE ROCK EVANGELICAL MISSION</div>
-    <h1>Standing Upon the Rock.<br><span>Proclaiming His Voice.</span></h1>
-    <p class="hero-copy">A Christ-centred Mission committed to proclaiming Jesus Christ, building lives, raising faithful voices, and advancing the Gospel.</p>
-    <div class="hero-actions"><a class="btn btn-primary" href="about.html">Discover the Mission</a><a class="text-link" href="teachings.html">Explore Teachings <span>→</span></a></div>
-  </div>
-</section>
-<section class="mission-section"><div class="wrap cards-grid">
-  <article class="mission-card"><div class="card-tag">OUR CALLING</div><h2>Proclaim Christ</h2><p>Jesus Christ is the centre of our message, worship and mission.</p></article>
-  <article class="mission-card"><div class="card-tag">OUR WORK</div><h2>Build Lives</h2><p>We seek to help people grow through Scripture, prayer, discipleship and service.</p></article>
-  <article class="mission-card"><div class="card-tag">OUR VISION</div><h2>Raise Voices</h2><p>Believers are encouraged to discover, develop and faithfully use their God-given gifts.</p></article>
-</div></section>
-</main>
-<footer class="site-footer"><div class="wrap footer-grid">
-  <div><h3>VOICE ON THE ROCK</h3><p>Standing Upon the Rock, Proclaiming His Voice.</p></div>
-  <div><h4>About</h4><a href="about.html">Who We Are</a><a href="beliefs.html">Beliefs</a><a href="governance.html">Governance</a><a href="leadership.html">Leadership</a></div>
-  <div><h4>Ministry</h4><a href="ministries.html">Ministries</a><a href="teachings.html">Teachings</a><a href="programmes.html">Programmes</a><a href="library.html">Library</a></div>
-  <div><h4>Connect</h4><a href="membership.html">Membership</a><a href="prayer.html">Prayer</a><a href="give.html">Give</a><a href="contact.html">Contact</a></div>
-</div><div class="copyright">© <span data-year></span> Voice On The Rock Evangelical Mission.</div></footer>
-<script src="assets/script.js"></script>
-</body></html>
+<section id="home" class="hero"><div><p class="eyebrow">VOICE ON THE ROCK EVANGELICAL MISSION</p><h1>Proclaiming Christ.<br><span>Building Lives.</span></h1><p class="lead">A Christ-centered Mission committed to the Gospel, prayer, evangelism, discipleship, service and the building of lives for the glory of God.</p><a class="btn" href="#about">Discover the Mission</a> <a class="btn outline" href="#give">Support the Mission</a></div></section>
+<section id="about" class="section intro"><div><p class="eyebrow">WHO WE ARE</p><h2>A Mission with purpose.</h2></div><p>Voice on the Rock Evangelical Mission exists to proclaim Christ and build lives through the Gospel, worship, prayer, evangelism, discipleship and practical service.</p></section>
+<section id="departments" class="section light"><div class="heading"><p class="eyebrow">OUR MINISTRY STRUCTURE</p><h2>Ministries & Departments</h2><p>Different departments, one Mission; different gifts, one Body; different responsibilities, one Lord.</p></div><div id="departmentsGrid" class="grid"></div></section>
+<section id="books" class="section"><div class="heading"><p class="eyebrow">PUBLICATIONS</p><h2>Books</h2></div><div id="booksGrid" class="grid three"></div></section>
+<section id="constitution" class="section light"><div class="heading"><p class="eyebrow">GOVERNANCE</p><h2>Constitution & Official Documents</h2></div><div id="docsGrid" class="grid three"></div></section>
+<section id="media" class="section"><div class="heading"><p class="eyebrow">MEDIA & UPDATES</p><h2>Latest from the Mission</h2></div><div id="mediaGrid" class="grid three"></div></section>
+<section id="give" class="section navy"><div class="heading"><p class="eyebrow">PARTNER WITH US</p><h2>Give to the Mission</h2><p>Your generosity supports the approved work and activities of the Mission.</p></div><div id="donationGrid" class="grid two"></div></section>
+<section id="contact" class="section"><div class="heading"><p class="eyebrow">CONNECT WITH US</p><h2>Stay connected.</h2></div><div id="socialGrid" class="grid socials"></div></section>
+</main><footer><b>VOICE ON THE ROCK EVANGELICAL MISSION</b><span>Proclaiming Christ, Building Lives</span><span>© <span id="year"></span> VOTREM</span></footer>
+<script src="config.js"></script><script src="script.js"></script></body></html>
