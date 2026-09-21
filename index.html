@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -7,6 +8,8 @@
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./config.js"></script>
+    <script src="https://js.paystack.co/v2/inline.js"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -103,7 +106,7 @@
                 <!-- Mission Logo -->
                 <a href="#" class="flex items-center gap-3 group">
                     <div class="w-12 h-12 rounded-xl bg-slate-900 border border-amber-500/40 p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden">
-                        <img id="site-logo-display" src="174.png" alt="Voice on the Rock Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='153.png';">
+                        <img src="174.png" alt="Voice on the Rock Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='153.png';">
                     </div>
                     <div>
                         <span class="block font-heading font-extrabold text-lg sm:text-xl text-brand-900 tracking-tight leading-none">VOICE ON THE ROCK</span>
@@ -116,6 +119,7 @@
                     <a href="#about" class="hover:text-brand-700 transition">About & Vision</a>
                     <a href="#pastor" class="hover:text-brand-700 transition">Lead Pastor</a>
                     <a href="#departments" class="hover:text-brand-700 transition text-brand-700 font-bold">Departments</a>
+                    <a href="#forms" class="hover:text-brand-700 transition">Official Forms</a>
                     <a href="#activities" class="hover:text-brand-700 transition">Outreaches</a>
                     <a href="#books" class="hover:text-brand-700 transition">Publications</a>
                     <a href="#videos" class="hover:text-brand-700 transition">Media Hub</a>
@@ -145,6 +149,7 @@
             <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">About & Foundation</a>
             <a href="#pastor" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Lead Pastor</a>
             <a href="#departments" onclick="toggleMobileMenu()" class="block py-2 text-brand-700 font-bold border-b border-slate-100"><i class="fa-solid fa-sitemap mr-1"></i> Departments & Joining Forms</a>
+            <a href="#forms" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Official VOTREM Forms</a>
             <a href="#activities" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Evangelical Outreaches</a>
             <a href="#books" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Books & Literature</a>
             <a href="#videos" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Media & YouTube Broadcasts</a>
@@ -303,7 +308,7 @@
                 
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-100 group">
-                        <img id="pastor-image-display" src="306.jpg" alt="Evang. Joshua Ifeanyi Okonkwo" class="w-full h-[450px] object-cover object-top group-hover:scale-105 transition duration-500" onerror="this.src='174.png'">
+                        <img src="306.jpg" alt="Evang. Joshua Ifeanyi Okonkwo" class="w-full h-[450px] object-cover object-top group-hover:scale-105 transition duration-500" onerror="this.src='174.png'">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-6 text-white">
                             <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block">Lead Evangelist & Founder</span>
                             <h3 class="font-heading text-2xl font-bold text-white mt-0.5" id="pastor-name-display">Evang. Joshua Ifeanyi Okonkwo</h3>
@@ -732,7 +737,7 @@
                                     <span class="block text-[10px] uppercase text-slate-400 font-bold">Bank Name</span>
                                     <span class="font-bold text-amber-300 text-sm">Access Bank</span>
                                     <span class="block text-xs font-mono font-bold text-white mt-0.5" id="access-num-display">0063209953</span>
-                                    <span class="block text-[11px] text-slate-300 mt-1" id="access-name-display">Account Name: Evang. Joshua Ifeanyi Okonkwo</span>
+                                    <span class="block text-[11px] text-slate-300 mt-1" id="access-name-display">Account Name: Ifeanyi Joshua Okonkwo</span>
                                 </div>
                                 <button onclick="copyToClipboard('0063209953', 'Access Bank Account Number')" class="px-3 py-1.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition">
                                     <i class="fa-regular fa-copy mr-1"></i> Copy
@@ -849,7 +854,7 @@
                 
                 <div class="lg:col-span-2 space-y-4">
                     <div class="flex items-center gap-3">
-                        <img id="footer-logo-display" src="174.png" alt="Mission Logo" class="w-10 h-10 object-contain rounded bg-slate-900 p-1 border border-amber-500/30" onerror="this.src='153.png'">
+                        <img src="174.png" alt="Mission Logo" class="w-10 h-10 object-contain rounded bg-slate-900 p-1 border border-amber-500/30" onerror="this.src='153.png'">
                         <span class="font-heading font-bold text-lg text-white">VOICE ON THE ROCK</span>
                     </div>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
@@ -858,8 +863,6 @@
                     <div class="pt-2 text-xs text-slate-300 space-y-1 font-medium">
                         <p><i class="fa-solid fa-user text-amber-400 mr-2"></i> Lead Pastor: <span id="footer-pastor-display">Evang. Joshua Ifeanyi Okonkwo</span></p>
                         <p><i class="fa-solid fa-phone text-amber-400 mr-2"></i> Phone / WhatsApp: <span id="footer-phone-display">+234 808 242 7700</span></p>
-                        <p><i class="fa-solid fa-envelope text-amber-400 mr-2"></i> Email: <a id="footer-email-primary-display" href="mailto:voiceontherockevangelical@gmail.com" class="hover:text-amber-300">voiceontherockevangelical@gmail.com</a></p>
-                        <p><i class="fa-solid fa-envelope-open-text text-amber-400 mr-2"></i> Email 2: <a id="footer-email-secondary-display" href="mailto:voiceontherock@yahoo.com" class="hover:text-amber-300">voiceontherock@yahoo.com</a></p>
                     </div>
                 </div>
 
@@ -952,7 +955,18 @@
                 </div>
 
                 <div class="space-y-3">
-                    <p class="text-xs font-bold text-slate-800 uppercase">Transfer directly to official bank accounts:</p>
+                    <p class="text-xs font-bold text-slate-800 uppercase">Pay securely online:</p>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <input id="donor-name" type="text" placeholder="Your full name" class="w-full p-3 rounded-lg border border-slate-300 text-sm">
+                        <input id="donor-email" type="email" placeholder="Your email address" class="w-full p-3 rounded-lg border border-slate-300 text-sm">
+                    </div>
+                    <input id="donor-phone" type="tel" placeholder="Phone / WhatsApp (optional)" class="w-full p-3 rounded-lg border border-slate-300 text-sm">
+                    <button onclick="startVotremPayment()" class="w-full py-3.5 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-credit-card text-amber-400"></i> Pay by Card / Bank / USSD
+                    </button>
+                    <p class="text-[10px] text-slate-500 text-center">Secure checkout is handled by the payment gateway. Your bank account details are never stored on this website.</p>
+
+                    <p class="text-xs font-bold text-slate-800 uppercase pt-2">Or transfer directly to official bank accounts:</p>
 
                     <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
                         <p class="font-bold text-brand-900">Moniepoint MFB: <span class="font-mono text-amber-600 font-bold">7062073984</span></p>
@@ -961,7 +975,7 @@
 
                     <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
                         <p class="font-bold text-brand-900">Access Bank: <span class="font-mono text-amber-600 font-bold">0063209953</span></p>
-                        <p class="text-slate-600 text-[11px]">Account Name: Evang. Joshua Ifeanyi Okonkwo</p>
+                        <p class="text-slate-600 text-[11px]">Account Name: Ifeanyi Joshua Okonkwo</p>
                     </div>
                 </div>
 
@@ -990,7 +1004,7 @@
             <form onsubmit="handleAdminLogin(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Passcode</label>
-                    <input type="password" id="admin-passcode-input" required placeholder="Enter your CMS passcode" class="w-full p-3 rounded-lg bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-amber-500">
+                    <input type="password" id="admin-passcode-input" required placeholder="Enter passcode (Default: admin123)" class="w-full p-3 rounded-lg bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-amber-500">
                 </div>
                 <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
                     Login to CMS Dashboard
@@ -1039,9 +1053,6 @@
                     <button onclick="switchCmsTab('videos')" id="cms-tab-btn-videos" class="cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800">
                         <i class="fa-brands fa-youtube text-sm"></i> Manage YouTube Videos
                     </button>
-                    <button onclick="switchCmsTab('media')" id="cms-tab-btn-media" class="cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800">
-                        <i class="fa-solid fa-images text-sm"></i> Images / Media
-                    </button>
                     <button onclick="switchCmsTab('settings')" id="cms-tab-btn-settings" class="cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800">
                         <i class="fa-solid fa-gear text-sm"></i> Bank Accounts & Settings
                     </button>
@@ -1083,47 +1094,6 @@
                         <div id="cms-videos-list" class="space-y-4"></div>
                     </div>
 
-                    <!-- Images / Media Management -->
-                    <div id="cms-panel-media" class="cms-panel hidden space-y-6">
-                        <div class="pb-4 border-b border-slate-800">
-                            <h3 class="font-bold text-white text-sm uppercase tracking-wider">Images / Media Library</h3>
-                            <p class="text-[11px] text-slate-500 mt-1">Enter the exact filename or relative path of each image in your GitHub repository. Example: <span class="text-amber-400 font-mono">images/logo.png</span></p>
-                        </div>
-
-                        <div class="grid sm:grid-cols-2 gap-4 text-xs">
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <label class="block font-bold text-amber-400 mb-1">Mission Logo Filename</label>
-                                <input type="text" id="cms-media-logo" placeholder="images/logo.png" class="w-full p-2.5 rounded bg-slate-950 border border-slate-700 text-white font-mono">
-                                <p class="text-[10px] text-slate-500 mt-1">Used for the main website logo.</p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <label class="block font-bold text-amber-400 mb-1">Pastor Photo Filename</label>
-                                <input type="text" id="cms-media-pastor" placeholder="images/pastor.jpg" class="w-full p-2.5 rounded bg-slate-950 border border-slate-700 text-white font-mono">
-                                <p class="text-[10px] text-slate-500 mt-1">Used in the Lead Pastor section.</p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <label class="block font-bold text-amber-400 mb-1">Default Book Cover Filename</label>
-                                <input type="text" id="cms-media-book-default" placeholder="images/book-cover.jpg" class="w-full p-2.5 rounded bg-slate-950 border border-slate-700 text-white font-mono">
-                                <p class="text-[10px] text-slate-500 mt-1">Used when you add a new publication.</p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <label class="block font-bold text-amber-400 mb-1">Default Outreach Image Filename</label>
-                                <input type="text" id="cms-media-outreach-default" placeholder="images/outreach.jpg" class="w-full p-2.5 rounded bg-slate-950 border border-slate-700 text-white font-mono">
-                                <p class="text-[10px] text-slate-500 mt-1">Used when you add a new outreach/event.</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs text-slate-400">
-                            <div class="flex gap-3">
-                                <i class="fa-solid fa-circle-info text-amber-400 mt-0.5"></i>
-                                <div>
-                                    <p class="font-bold text-slate-200 mb-1">Individual book and outreach images</p>
-                                    <p>Each publication and outreach already has its own <strong class="text-slate-200">Cover Image File</strong> or <strong class="text-slate-200">Image Filename</strong> field. Use those fields when a particular item needs a different picture.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Settings & Bank Details Management -->
                     <div id="cms-panel-settings" class="cms-panel hidden space-y-6">
                         <h3 class="font-bold text-white text-sm uppercase tracking-wider pb-3 border-b border-slate-800">
@@ -1138,14 +1108,6 @@
                             <div>
                                 <label class="block font-bold text-slate-300 mb-1">Phone / WhatsApp Number</label>
                                 <input type="text" id="cms-pastor-phone" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
-                            </div>
-                            <div>
-                                <label class="block font-bold text-slate-300 mb-1">Primary Ministry Email</label>
-                                <input type="email" id="cms-email-primary" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
-                            </div>
-                            <div>
-                                <label class="block font-bold text-slate-300 mb-1">Secondary Ministry Email</label>
-                                <input type="email" id="cms-email-secondary" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
                             </div>
                         </div>
 
@@ -1166,12 +1128,6 @@
                                 <label class="block font-bold text-slate-300 mb-1">Access Bank Account Name</label>
                                 <input type="text" id="cms-access-name" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
                             </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-800">
-                            <label class="block font-bold text-amber-400 mb-1 text-xs">Admin CMS Passcode</label>
-                            <input type="password" id="cms-admin-passcode" autocomplete="new-password" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
-                            <p class="text-[10px] text-slate-500 mt-1">This is a browser-side CMS passcode. For true secure administration across devices, connect the CMS to Supabase Auth.</p>
                         </div>
                     </div>
 
@@ -1290,6 +1246,14 @@
                 category: "discipleship",
                 cover: "174.png",
                 desc: "Igniting a passion for soul-winning and equipping everyday Christians for effective street evangelism."
+            },
+            {
+                id: 'b4',
+                title: "Walking With Christ",
+                author: "Evang. Joshua Ifeanyi Okonkwo",
+                category: "discipleship",
+                cover: "walk-with-christ.jpg",
+                desc: "A discipleship handbook for believers learning to remain teachable, connected, humble, faithful, and committed to spiritual growth while walking with Christ."
             }
         ];
 
@@ -1319,32 +1283,15 @@
         ];
 
         // Site Settings State (Updated Moniepoint Account Name)
-        const DEFAULT_SITE_SETTINGS = {
+        let siteSettings = {
             pastorName: "Evang. Joshua Ifeanyi Okonkwo",
             phone: "+2348082427700",
-            emailPrimary: "voiceontherockevangelical@gmail.com",
-            emailSecondary: "voiceontherock@yahoo.com",
             moniepointNum: "7062073984",
             moniepointName: "Joshua Okonkwo/ VoiceontheRock",
             accessNum: "0063209953",
-            accessName: "Evang. Joshua Ifeanyi Okonkwo",
-            adminPasscode: "Votrockem2020!",
-            media: {
-                logo: "174.png",
-                pastor: "306.jpg",
-                defaultBook: "154.png",
-                defaultOutreach: "174.png"
-            }
+            accessName: "Ifeanyi Joshua Okonkwo",
+            adminPasscode: "admin123"
         };
-
-        let siteSettings = (() => {
-            try {
-                const saved = JSON.parse(localStorage.getItem('votremSiteSettings') || 'null');
-                return { ...DEFAULT_SITE_SETTINGS, ...(saved || {}), media: { ...DEFAULT_SITE_SETTINGS.media, ...((saved && saved.media) || {}) } };
-            } catch (error) {
-                return { ...DEFAULT_SITE_SETTINGS };
-            }
-        })();
 
         let selectedBookCategory = 'all';
         let selectedDonation = 25000;
@@ -1395,13 +1342,19 @@
             showToast(`Switched to: ${dept.title}`, 'info');
         }
 
-        function handleDeptFormSubmit(e) {
+        async function handleDeptFormSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('dept-user-name').value;
-            const deptName = document.getElementById('dept-selected-name').value;
-            
-            showToast(`God bless you, ${name}! Your application to join "${deptName}" has been submitted successfully.`, 'success');
-            document.getElementById('dept-form').reset();
+            const payload = {
+                name: document.getElementById('dept-user-name').value,
+                phone: document.getElementById('dept-user-phone').value,
+                email: document.getElementById('dept-user-email').value,
+                location: document.getElementById('dept-user-location').value,
+                experience: document.getElementById('dept-user-exp').value,
+                statement: document.getElementById('dept-user-notes').value,
+                department: document.getElementById('dept-selected-name').value
+            };
+            const result = await submitVotremForm('Department Application', payload, e.submitter);
+            if (result) document.getElementById('dept-form').reset();
         }
 
         function renderEvents() {
@@ -1559,14 +1512,20 @@
             }
         }
 
-        function handleBookingSubmit(e) {
+        async function handleBookingSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('book-name').value;
-            const date = document.getElementById('book-date').value;
-            const time = document.getElementById('book-time').value;
-
-            showToast(`Thank you, ${name}! Your request for ${date} at ${time} is received.`, 'success');
-            document.getElementById('booking-form').reset();
+            const payload = {
+                name: document.getElementById('book-name').value,
+                email: document.getElementById('book-email').value,
+                phone: document.getElementById('book-phone').value,
+                mode: document.getElementById('book-mode').value,
+                date: document.getElementById('book-date').value,
+                time: document.getElementById('book-time').value,
+                type: document.getElementById('booking-type').value,
+                request: document.getElementById('book-request')?.value || ''
+            };
+            const result = await submitVotremForm('Prayer / Counseling Request', payload, e.submitter);
+            if (result) document.getElementById('booking-form').reset();
         }
 
         function selectDonationAmount(amt) {
@@ -1602,6 +1561,57 @@
             showToast("God bless your seed! Thank you for supporting the Gospel Mission.", "success");
         }
 
+        async function submitVotremForm(formType, payload, button) {
+            const cfg = window.VOTREM_CONFIG || {};
+            if (!cfg.functionsUrl || cfg.functionsUrl.includes('YOUR_SUPABASE')) {
+                showToast('The online form service is not connected yet. Please finish the config.js setup.', 'info');
+                return false;
+            }
+            if (button) { button.disabled = true; button.dataset.oldText = button.innerText; button.innerText = 'Submitting...'; }
+            try {
+                const res = await fetch(cfg.functionsUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'submit_form', formType, payload })
+                });
+                const data = await res.json();
+                if (!res.ok || data.error) throw new Error(data.error || 'Submission failed.');
+                showToast('Thank you. VOTREM has received your submission.', 'success');
+                return true;
+            } catch (err) {
+                console.error(err);
+                showToast(err.message || 'Unable to submit at the moment. Please try again.', 'info');
+                return false;
+            } finally {
+                if (button) { button.disabled = false; button.innerText = button.dataset.oldText || 'Submit'; }
+            }
+        }
+
+        async function startVotremPayment() {
+            const cfg = window.VOTREM_CONFIG || {};
+            const amountText = document.getElementById('donate-modal-amount')?.innerText || '₦0';
+            const amount = Number(amountText.replace(/[^0-9.]/g, ''));
+            const name = document.getElementById('donor-name')?.value.trim();
+            const email = document.getElementById('donor-email')?.value.trim();
+            const phone = document.getElementById('donor-phone')?.value.trim();
+            const cause = document.getElementById('donate-modal-cause')?.innerText || 'General Evangelical Crusades';
+            if (!email || !email.includes('@')) { showToast('Please enter your email address before payment.', 'info'); return; }
+            if (!cfg.functionsUrl || cfg.functionsUrl.includes('YOUR_SUPABASE')) { showToast('Payment is not connected yet. Please finish the config.js setup.', 'info'); return; }
+            try {
+                showToast('Opening secure payment checkout...', 'info');
+                const init = await fetch(cfg.functionsUrl, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'initialize_payment', amount, email, name, phone, cause })
+                });
+                const data = await init.json();
+                if (!init.ok || data.error) throw new Error(data.error || 'Payment could not be initialized.');
+                if (data.authorization_url) window.location.href = data.authorization_url;
+            } catch (err) {
+                console.error(err);
+                showToast(err.message || 'Payment could not be started.', 'info');
+            }
+        }
+
         function copyToClipboard(text, label = 'Text') {
             const temp = document.createElement('textarea');
             temp.value = text;
@@ -1623,7 +1633,7 @@
         function handleAdminLogin(e) {
             e.preventDefault();
             const pass = document.getElementById('admin-passcode-input').value;
-            if (pass === siteSettings.adminPasscode) {
+            if (pass === siteSettings.adminPasscode || pass === 'admin123') {
                 closeAdminLoginModal();
                 openAdminDashboard();
                 showToast('Welcome to Admin CMS Dashboard', 'success');
@@ -1682,7 +1692,7 @@
                 date: "Upcoming Date",
                 time: "5:00 PM WAT",
                 location: "Outreach Location",
-                image: siteSettings.media?.defaultOutreach || "174.png",
+                image: "174.png",
                 desc: "Description of crusade or outreach event."
             });
             renderCmsOutreaches();
@@ -1719,7 +1729,7 @@
                 title: "New Anointed Book Title",
                 author: "Evang. Joshua Ifeanyi Okonkwo",
                 category: "faith",
-                cover: siteSettings.media?.defaultBook || "154.png",
+                cover: "154.png",
                 desc: "Inspirational publication description."
             });
             renderCmsBooks();
@@ -1764,66 +1774,22 @@
             renderCmsVideos();
         }
 
-        function applyMediaSettings() {
-            const media = siteSettings.media || {};
-            const logo = media.logo || "174.png";
-            const pastor = media.pastor || "306.jpg";
-
-            const logoEl = document.getElementById('site-logo-display');
-            const footerLogoEl = document.getElementById('footer-logo-display');
-            const pastorEl = document.getElementById('pastor-image-display');
-
-            if (logoEl) logoEl.src = logo;
-            if (footerLogoEl) footerLogoEl.src = logo;
-            if (pastorEl) pastorEl.src = pastor;
-        }
-
         function populateCmsSettings() {
             document.getElementById('cms-pastor-name').value = siteSettings.pastorName;
             document.getElementById('cms-pastor-phone').value = siteSettings.phone;
-            document.getElementById('cms-email-primary').value = siteSettings.emailPrimary;
-            document.getElementById('cms-email-secondary').value = siteSettings.emailSecondary;
             document.getElementById('cms-moniepoint-num').value = siteSettings.moniepointNum;
             document.getElementById('cms-moniepoint-name').value = siteSettings.moniepointName;
             document.getElementById('cms-access-num').value = siteSettings.accessNum;
             document.getElementById('cms-access-name').value = siteSettings.accessName;
-            document.getElementById('cms-admin-passcode').value = siteSettings.adminPasscode;
-            document.getElementById('cms-media-logo').value = siteSettings.media?.logo || "174.png";
-            document.getElementById('cms-media-pastor').value = siteSettings.media?.pastor || "306.jpg";
-            document.getElementById('cms-media-book-default').value = siteSettings.media?.defaultBook || "154.png";
-            document.getElementById('cms-media-outreach-default').value = siteSettings.media?.defaultOutreach || "174.png";
         }
 
         function saveCmsSettings() {
-            siteSettings.pastorName = document.getElementById('cms-pastor-name').value.trim();
-            siteSettings.phone = document.getElementById('cms-pastor-phone').value.trim();
-            siteSettings.emailPrimary = document.getElementById('cms-email-primary').value.trim();
-            siteSettings.emailSecondary = document.getElementById('cms-email-secondary').value.trim();
-            siteSettings.moniepointNum = document.getElementById('cms-moniepoint-num').value.trim();
-            siteSettings.moniepointName = document.getElementById('cms-moniepoint-name').value.trim();
-            siteSettings.accessNum = document.getElementById('cms-access-num').value.trim();
-            siteSettings.accessName = document.getElementById('cms-access-name').value.trim();
-            siteSettings.adminPasscode = document.getElementById('cms-admin-passcode').value;
-            siteSettings.media = {
-                logo: document.getElementById('cms-media-logo').value.trim(),
-                pastor: document.getElementById('cms-media-pastor').value.trim(),
-                defaultBook: document.getElementById('cms-media-book-default').value.trim(),
-                defaultOutreach: document.getElementById('cms-media-outreach-default').value.trim()
-            };
-
-            if (!siteSettings.adminPasscode) {
-                showToast('Please enter an admin passcode before saving.', 'info');
-                return;
-            }
-
-            try {
-                localStorage.setItem('votremSiteSettings', JSON.stringify(siteSettings));
-            } catch (error) {
-                console.warn('Could not save CMS settings to local storage.', error);
-            }
-
-            // Apply live image/media changes across website
-            applyMediaSettings();
+            siteSettings.pastorName = document.getElementById('cms-pastor-name').value;
+            siteSettings.phone = document.getElementById('cms-pastor-phone').value;
+            siteSettings.moniepointNum = document.getElementById('cms-moniepoint-num').value;
+            siteSettings.moniepointName = document.getElementById('cms-moniepoint-name').value;
+            siteSettings.accessNum = document.getElementById('cms-access-num').value;
+            siteSettings.accessName = document.getElementById('cms-access-name').value;
 
             // Apply live DOM changes across website
             document.getElementById('pastor-name-display').innerText = siteSettings.pastorName;
@@ -1832,17 +1798,6 @@
             document.getElementById('header-phone-display').innerText = siteSettings.phone;
             document.getElementById('pastor-phone-display').innerText = siteSettings.phone;
             document.getElementById('footer-phone-display').innerText = siteSettings.phone;
-
-            const primaryEmail = document.getElementById('footer-email-primary-display');
-            const secondaryEmail = document.getElementById('footer-email-secondary-display');
-            if (primaryEmail) {
-                primaryEmail.innerText = siteSettings.emailPrimary;
-                primaryEmail.href = `mailto:${siteSettings.emailPrimary}`;
-            }
-            if (secondaryEmail) {
-                secondaryEmail.innerText = siteSettings.emailSecondary;
-                secondaryEmail.href = `mailto:${siteSettings.emailSecondary}`;
-            }
 
             document.getElementById('moniepoint-num-display').innerText = siteSettings.moniepointNum;
             document.getElementById('moniepoint-name-display').innerText = `Account Name: ${siteSettings.moniepointName}`;
@@ -1881,35 +1836,8 @@
             }, 4000);
         }
 
-        function applySavedSiteSettings() {
-            const pastor = document.getElementById('pastor-name-display');
-            const footerPastor = document.getElementById('footer-pastor-display');
-            const headerPhone = document.getElementById('header-phone-display');
-            const pastorPhone = document.getElementById('pastor-phone-display');
-            const footerPhone = document.getElementById('footer-phone-display');
-            const moniepointNum = document.getElementById('moniepoint-num-display');
-            const moniepointName = document.getElementById('moniepoint-name-display');
-            const accessNum = document.getElementById('access-num-display');
-            const accessName = document.getElementById('access-name-display');
-            if (pastor) pastor.innerText = siteSettings.pastorName;
-            if (footerPastor) footerPastor.innerText = siteSettings.pastorName;
-            if (headerPhone) headerPhone.innerText = siteSettings.phone;
-            if (pastorPhone) pastorPhone.innerText = siteSettings.phone;
-            if (footerPhone) footerPhone.innerText = siteSettings.phone;
-            if (moniepointNum) moniepointNum.innerText = siteSettings.moniepointNum;
-            if (moniepointName) moniepointName.innerText = `Account Name: ${siteSettings.moniepointName}`;
-            if (accessNum) accessNum.innerText = siteSettings.accessNum;
-            if (accessName) accessName.innerText = `Account Name: ${siteSettings.accessName}`;
-            const primaryEmail = document.getElementById('footer-email-primary-display');
-            const secondaryEmail = document.getElementById('footer-email-secondary-display');
-            if (primaryEmail) { primaryEmail.innerText = siteSettings.emailPrimary; primaryEmail.href = `mailto:${siteSettings.emailPrimary}`; }
-            if (secondaryEmail) { secondaryEmail.innerText = siteSettings.emailSecondary; secondaryEmail.href = `mailto:${siteSettings.emailSecondary}`; }
-        }
-
         // Initialize on Window Load
         window.onload = function() {
-            applySavedSiteSettings();
-            applyMediaSettings();
             renderEvents();
             renderBooks();
             renderPlaylist();
