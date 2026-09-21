@@ -1,0 +1,1844 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice on the Rock Evangelical Mission (VOTREM)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#0b132b',
+                        },
+                        gold: {
+                            300: '#fde047',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(11, 19, 43, 0.96) 0%, rgba(30, 58, 138, 0.90) 100%);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #f59e0b 0%, #fde047 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 max-w-sm pointer-events-none"></div>
+
+    <!-- Announcement Bar -->
+    <div class="bg-brand-900 text-amber-300 text-xs sm:text-sm py-2 px-4 text-center font-medium border-b border-amber-500/20 flex flex-wrap items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+        <span>Motto: "Proclaiming Christ, Building lives." • Voice on the Rock Evangelical Mission</span>
+        <a href="tel:+2348082427700" class="underline hover:text-white transition font-semibold ml-1">
+            <i class="fa-solid fa-phone text-xs mr-1"></i><span id="header-phone-display">+234 808 242 7700</span>
+        </a>
+        <button onclick="openAdminLoginModal()" class="ml-3 px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-[11px] font-bold tracking-wide uppercase transition border border-amber-500/30">
+            <i class="fa-solid fa-lock text-[10px] mr-1"></i> Admin CMS
+        </button>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Mission Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-slate-900 border border-amber-500/40 p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+                        <img src="174.png" alt="Voice on the Rock Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='153.png';">
+                    </div>
+                    <div>
+                        <span class="block font-heading font-extrabold text-lg sm:text-xl text-brand-900 tracking-tight leading-none">VOICE ON THE ROCK</span>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-gold-600 block mt-0.5">Evangelical Mission</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-6 font-semibold text-slate-700 text-sm">
+                    <a href="#about" class="hover:text-brand-700 transition">About & Vision</a>
+                    <a href="#pastor" class="hover:text-brand-700 transition">Lead Pastor</a>
+                    <a href="#departments" class="hover:text-brand-700 transition text-brand-700 font-bold">Departments</a>
+                    <a href="#activities" class="hover:text-brand-700 transition">Outreaches</a>
+                    <a href="#books" class="hover:text-brand-700 transition">Publications</a>
+                    <a href="#videos" class="hover:text-brand-700 transition">Media Hub</a>
+                    <a href="#booking" class="hover:text-brand-700 transition">Counseling</a>
+                    <a href="#donate" class="hover:text-brand-700 transition">Giving</a>
+                </nav>
+
+                <!-- Header Action Buttons -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="scrollToSection('booking')" class="px-4 py-2.5 rounded-lg border border-brand-700 text-brand-700 hover:bg-brand-50 font-bold text-xs uppercase tracking-wider transition">
+                        <i class="fa-regular fa-calendar-check mr-1.5"></i> Prayer Line
+                    </button>
+                    <button onclick="openDonateModal()" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-gold-500/20 transition transform hover:-translate-y-0.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart"></i> Donate
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">About & Foundation</a>
+            <a href="#pastor" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Lead Pastor</a>
+            <a href="#departments" onclick="toggleMobileMenu()" class="block py-2 text-brand-700 font-bold border-b border-slate-100"><i class="fa-solid fa-sitemap mr-1"></i> Departments & Joining Forms</a>
+            <a href="#activities" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Evangelical Outreaches</a>
+            <a href="#books" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Books & Literature</a>
+            <a href="#videos" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Media & YouTube Broadcasts</a>
+            <a href="#booking" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Book Counseling & Prayer</a>
+            <a href="#donate" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold border-b border-slate-100">Bank Wire & Giving</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <button onclick="toggleMobileMenu(); openDonateModal();" class="w-full py-3 rounded-lg bg-gold-600 text-white font-bold text-center">
+                    Donate & Support Mission
+                </button>
+                <button onclick="toggleMobileMenu(); openAdminLoginModal();" class="w-full py-2.5 rounded-lg border border-slate-300 text-slate-700 font-bold text-center text-xs">
+                    <i class="fa-solid fa-lock mr-1"></i> Admin CMS Login
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-slate-950 text-white overflow-hidden py-20 lg:py-28">
+        <div class="absolute inset-0 z-0">
+            <img src="174.png" alt="Voice on the Rock Outreach Banner" class="w-full h-full object-cover opacity-25 filter blur-[1px]" onerror="this.src='153.png'">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-bullhorn text-gold-400"></i> <span id="hero-tagline">Proclaiming Christ, Building lives.</span>
+                    </div>
+                    
+                    <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Standing on the Rock, <span class="gold-gradient-text">Unshakable for Eternity.</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Welcome to <strong>Voice on the Rock Evangelical Mission (VOTREM)</strong>. Led by <strong>Evang. Joshua Ifeanyi Okonkwo</strong>, we exist to preach the uncompromised Word of God, lead souls to Christ, restore backsliders, and raise faithful voices for the Kingdom of God.
+                    </p>
+
+                    <blockquote class="text-xs sm:text-sm text-amber-300/90 italic font-medium max-w-xl mx-auto lg:mx-0 border-l-2 border-gold-500 pl-3">
+                        "And I say also unto thee, That thou art Peter, and upon this rock I will build my church; and the gates of hell shall not prevail against it." — Matthew 16:18
+                    </blockquote>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="scrollToSection('departments')" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-gold-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-sitemap text-lg"></i> Join a Department
+                        </button>
+                        <button onclick="scrollToSection('booking')" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm transition backdrop-blur-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-hands-praying text-amber-400"></i> Book Counseling & Prayer
+                        </button>
+                    </div>
+
+                    <!-- Social Media Direct Link Bar -->
+                    <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-slate-300">
+                        <span class="font-bold text-amber-400 uppercase tracking-wider">Follow VOTREM:</span>
+                        <a href="https://www.youtube.com/@voiceontherockm" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800"><i class="fa-brands fa-youtube text-red-500"></i> YouTube</a>
+                        <a href="https://whatsapp.com/channel/0029Vb9KgXL8PgsJ9f2wJS0f" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800"><i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp</a>
+                        <a href="https://t.me/voiceontherockem" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800"><i class="fa-brands fa-telegram text-sky-400"></i> Telegram</a>
+                        <a href="https://vm.tiktok.com/ZS9Ak8FQ2v1Rt-dBGmN/" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800"><i class="fa-brands fa-tiktok text-slate-200"></i> TikTok</a>
+                    </div>
+                </div>
+
+                <!-- Banner Image Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900/90 border border-amber-500/30 rounded-2xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl relative">
+                        <div class="relative rounded-xl overflow-hidden border border-amber-500/20 shadow-lg group">
+                            <img src="153.png" alt="VOTREM Banner" class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="mt-4 p-3 bg-slate-950/80 rounded-xl border border-slate-800 text-center">
+                            <p class="font-heading font-semibold text-amber-300 text-xs sm:text-sm italic">
+                                "For other foundation can no man lay than that is laid, which is Jesus Christ." — 1 Cor 3:11
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Constitution & Foundational Identity Section -->
+    <section id="about" class="py-20 bg-slate-900 text-white border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-400 font-bold uppercase tracking-wider text-xs sm:text-sm">Foundational Pillars</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1 mb-3">Divine Purpose & Governing Principles</h2>
+                <div class="w-16 h-1 bg-gold-500 mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Voice on the Rock Evangelical Mission (VOTREM) is governed by sacred scriptures and dedicated to stewardship under the absolute Lordship of Jesus Christ.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Vision Card -->
+                <div class="bg-slate-950 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-3">Our Vision Statement</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            "To establish, beyond religious traditions and human philosophies, a people whose lives, voices, and ministries faithfully proclaim the pure Word, purpose, and character of Jesus Christ, standing upon Him alone as the Eternal Rock."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-amber-400 font-semibold uppercase tracking-wider">
+                        ARTICLE I, SECTION 1.6
+                    </div>
+                </div>
+
+                <!-- Stewardship Card -->
+                <div class="bg-slate-950 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-3">The Caretaker's Principle</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            "Voice on the Rock Evangelical Mission belongs to Jesus Christ alone. No leader, minister, or trustee shall ever regard this Mission as personal property. Leadership is sacred stewardship, never personal ownership."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-amber-400 font-semibold uppercase tracking-wider">
+                        1 CORINTHIANS 4:2 • CARETAKER'S CHARGE
+                    </div>
+                </div>
+
+                <!-- Raising Voices Card -->
+                <div class="bg-slate-950 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-3">The Raising of Voices</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            "One of the principal assignments of VOTREM shall be to discover, encourage, equip, and release men and women whose voices shall faithfully proclaim Jesus Christ to all nations without compromise."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-amber-400 font-semibold uppercase tracking-wider">
+                        ARTICLE I, SECTION 1.10
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-brand-900 via-slate-900 to-brand-900 p-6 sm:p-8 rounded-2xl border border-amber-500/30 text-center">
+                <h4 class="font-heading font-bold text-amber-300 text-base sm:text-lg mb-2">Our Core Identity & Mission Mandate</h4>
+                <p class="text-xs sm:text-sm text-slate-200 max-w-4xl mx-auto leading-relaxed">
+                    We stand for the uncompromised Gospel, leading sinners to genuine repentance, restoring backsliders, discipling believers into spiritual maturity, demonstrating Christ's love through practical compassion, and preparing God's people for the Second Coming of Jesus Christ.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Pastor Section -->
+    <section id="pastor" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-100 group">
+                        <img src="306.jpg" alt="Evang. Joshua Ifeanyi Okonkwo" class="w-full h-[450px] object-cover object-top group-hover:scale-105 transition duration-500" onerror="this.src='174.png'">
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-6 text-white">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block">Lead Evangelist & Founder</span>
+                            <h3 class="font-heading text-2xl font-bold text-white mt-0.5" id="pastor-name-display">Evang. Joshua Ifeanyi Okonkwo</h3>
+                            <p class="text-xs text-slate-300 mt-1"><i class="fa-solid fa-phone text-amber-400 mr-1"></i> <span id="pastor-phone-display">+234 808 242 7700</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-gold-600 font-bold uppercase tracking-wider text-xs sm:text-sm">Leadership & Vision</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+                        A Voice Called to Awaken Nations to the Rock
+                    </h2>
+                    <div class="w-16 h-1 bg-gold-500 rounded-full"></div>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Under the spiritual direction of <strong>Evang. Joshua Ifeanyi Okonkwo</strong>, Voice on the Rock Evangelical Mission carries a burning mandate to bring the unadulterated message of salvation to markets, streets, villages, and digital platforms across the globe.
+                    </p>
+
+                    <blockquote class="p-4 bg-amber-50 border-l-4 border-gold-500 rounded-r-xl text-slate-800 text-sm italic font-medium">
+                        "How beautiful upon the mountains are the feet of him that bringeth good tidings, that publisheth peace..." — Isaiah 52:7
+                    </blockquote>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="text-brand-700 font-bold text-lg mb-1"><i class="fa-solid fa-bullhorn mr-2"></i>Outreach Crusades</div>
+                            <p class="text-xs text-slate-600">Reaching souls through street evangelism, tract sharing, and open-air gospel crusades.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="text-brand-700 font-bold text-lg mb-1"><i class="fa-solid fa-hands-holding-child mr-2"></i>Counseling & Deliverance</div>
+                            <p class="text-xs text-slate-600">Personalized spiritual direction and prayer for total freedom in Christ Jesus.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <button onclick="scrollToSection('booking')" class="px-6 py-3 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider transition">
+                            Book Counseling with Pastor
+                        </button>
+                        <a href="https://whatsapp.com/channel/0029Vb9KgXL8PgsJ9f2wJS0f" target="_blank" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Join WhatsApp Channel
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: VOTREM DEPARTMENTS & JOINING FORMS (IN ORDER) -->
+    <section id="departments" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-xs sm:text-sm">Organized Service Arms</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-1 mb-3">Ministry Departments & Volunteer Forms</h2>
+                <div class="w-16 h-1 bg-gold-500 mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Every believer is called to serve. Explore VOTREM departments below in order and submit your registration form to get involved.
+                </p>
+            </div>
+
+            <!-- Department Navigation Buttons (In Order) -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 custom-scrollbar justify-start sm:justify-center">
+                <button onclick="setActiveDept('evangelism')" id="dept-btn-evangelism" class="dept-nav-btn active px-4 py-2.5 rounded-xl font-bold text-xs transition whitespace-nowrap bg-brand-900 text-white shadow-md">
+                    1. Evangelism & Crusades
+                </button>
+                <button onclick="setActiveDept('publications')" id="dept-btn-publications" class="dept-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs transition whitespace-nowrap bg-white border border-slate-300 text-slate-700 hover:bg-slate-100">
+                    2. Publications & Tracts
+                </button>
+                <button onclick="setActiveDept('prayer')" id="dept-btn-prayer" class="dept-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs transition whitespace-nowrap bg-white border border-slate-300 text-slate-700 hover:bg-slate-100">
+                    3. Prayer & Intercession
+                </button>
+                <button onclick="setActiveDept('counseling')" id="dept-btn-counseling" class="dept-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs transition whitespace-nowrap bg-white border border-slate-300 text-slate-700 hover:bg-slate-100">
+                    4. Counseling & Discipleship
+                </button>
+                <button onclick="setActiveDept('media')" id="dept-btn-media" class="dept-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs transition whitespace-nowrap bg-white border border-slate-300 text-slate-700 hover:bg-slate-100">
+                    5. Media & YouTube Tech
+                </button>
+                <button onclick="setActiveDept('worship')" id="dept-btn-worship" class="dept-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs transition whitespace-nowrap bg-white border border-slate-300 text-slate-700 hover:bg-slate-100">
+                    6. Worship & Sanctuary
+                </button>
+            </div>
+
+            <!-- Department Interactive Card + Form Block -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden grid lg:grid-cols-12 gap-0">
+                
+                <!-- Left Details Banner -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-brand-900 via-brand-800 to-slate-950 p-8 sm:p-10 text-white flex flex-col justify-between">
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-gold-500/20 text-amber-300 font-bold text-xs uppercase tracking-wider inline-block mb-4" id="dept-badge">
+                            Department #1
+                        </span>
+                        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-3" id="dept-title">
+                            Evangelism & Field Crusades
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6" id="dept-desc">
+                            The primary engine of VOTREM. Organizes street soul-winning, open-air crusade setups, rural evangelism drives, and gospel witnessing in public spaces.
+                        </p>
+
+                        <div class="space-y-3 pt-4 border-t border-slate-800 text-xs">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400 text-sm"></i>
+                                <span>Soul winning & tract distribution</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400 text-sm"></i>
+                                <span>Crusade logistics & outdoor preaching</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400 text-sm"></i>
+                                <span>Village and market revival teams</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 text-[11px] text-amber-400 italic">
+                        "Go ye into all the world, and preach the gospel to every creature." — Mark 16:15
+                    </div>
+                </div>
+
+                <!-- Right Department Application Form -->
+                <div class="lg:col-span-7 p-6 sm:p-10 bg-white">
+                    <h4 class="font-heading font-bold text-xl text-brand-900 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-file-pen text-gold-600"></i> Department Application Form
+                    </h4>
+                    <p class="text-xs text-slate-500 mb-6">Fill out this registration form to join this specific department arm.</p>
+
+                    <form id="dept-form" onsubmit="handleDeptFormSubmit(event)" class="space-y-4">
+                        <input type="hidden" id="dept-selected-name" value="Evangelism & Field Crusades">
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name *</label>
+                                <input type="text" id="dept-user-name" required placeholder="Enter full name" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone / WhatsApp *</label>
+                                <input type="tel" id="dept-user-phone" required placeholder="+234 800 000 0000" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address *</label>
+                                <input type="email" id="dept-user-email" required placeholder="your@email.com" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Location / City *</label>
+                                <input type="text" id="dept-user-location" required placeholder="e.g. Lagos, Onitsha, Abuja" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Previous Experience / Calling</label>
+                            <select id="dept-user-exp" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                                <option value="Beginner / Willing to learn">Beginner / Willing to be trained</option>
+                                <option value="Intermediate / Active Worker">Intermediate / Active Church Worker</option>
+                                <option value="Experienced Leader / Minister">Experienced / Minister</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Brief Statement of Commitment *</label>
+                            <textarea id="dept-user-notes" rows="3" required placeholder="Tell us why you feel led to join this department..." class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Application to Department
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Outreaches & Crusades Section -->
+    <section id="activities" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-xs sm:text-sm">Field Evangelism & Crusades</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-1 mb-3">Evangelical Outreaches in Action</h2>
+                <div class="w-16 h-1 bg-gold-500 mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Take a look at our live street ministry, soul-winning crusades, and gospel distribution across communities.
+                </p>
+            </div>
+
+            <!-- Outreach Photo Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="relative group rounded-xl overflow-hidden shadow border border-slate-200 h-52">
+                    <img src="174.png" alt="Street Soul Winning" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-xs text-amber-300 font-bold">Personal Soul Winning & Tracts</span>
+                    </div>
+                </div>
+                <div class="relative group rounded-xl overflow-hidden shadow border border-slate-200 h-52">
+                    <img src="218.png" alt="Gospel Outreach" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-xs text-amber-300 font-bold">Market Evangelism Crusade</span>
+                    </div>
+                </div>
+                <div class="relative group rounded-xl overflow-hidden shadow border border-slate-200 h-52">
+                    <img src="223.jpg" alt="Ministration" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-xs text-amber-300 font-bold">Preaching the Uncompromising Word</span>
+                    </div>
+                </div>
+                <div class="relative group rounded-xl overflow-hidden shadow border border-slate-200 h-52">
+                    <img src="224.jpg" alt="Prayer Session" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                        <span class="text-xs text-amber-300 font-bold">Prayers for Souls & Deliverance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Events Listing -->
+            <div class="grid md:grid-cols-3 gap-8" id="events-grid">
+                <!-- Events populated dynamically by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Books & Publications Section -->
+    <section id="books" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-xs sm:text-sm">Publication Ministry</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-1 mb-3">Books & Anointed Literature</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Equip your spirit with godly books published to strengthen your faith, understanding, and deliverance.</p>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div class="relative w-full sm:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+                    <input type="text" id="book-search" onkeyup="renderBooks()" placeholder="Search book titles..." class="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-brand-700">
+                </div>
+
+                <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 custom-scrollbar">
+                    <button onclick="setBookCategory('all')" class="book-cat-btn active px-3.5 py-1.5 rounded-md text-xs font-semibold bg-brand-800 text-white whitespace-nowrap">All Books</button>
+                    <button onclick="setBookCategory('prayer')" class="book-cat-btn px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 whitespace-nowrap">Prayer & Deliverance</button>
+                    <button onclick="setBookCategory('faith')" class="book-cat-btn px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 whitespace-nowrap">Faith & Salvation</button>
+                    <button onclick="setBookCategory('discipleship')" class="book-cat-btn px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 whitespace-nowrap">Discipleship</button>
+                </div>
+            </div>
+
+            <!-- Books Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" id="books-grid">
+                <!-- Books loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Sermons & Media Hub -->
+    <section id="videos" class="py-20 bg-slate-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-12">
+                <div>
+                    <span class="text-gold-400 font-bold uppercase tracking-wider text-xs sm:text-sm">Video Sermons & Outreaches</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Voice on the Rock YouTube Hub</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl text-sm sm:text-base">Watch anointed sermon series, crusade live-streams, prayer sessions, and gospel teachings on channel <strong>@voiceontherockm</strong>.</p>
+                </div>
+                <a href="https://www.youtube.com/@voiceontherockm" target="_blank" class="mt-4 lg:mt-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-red-600/30">
+                    <i class="fa-brands fa-youtube text-lg"></i> Subscribe @voiceontherockm
+                </a>
+            </div>
+
+            <!-- Video Main Frame & Playlist -->
+            <div class="grid lg:grid-cols-12 gap-8">
+                
+                <div class="lg:col-span-8 bg-black rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+                    <div class="relative w-full aspect-video bg-slate-900">
+                        <iframe id="youtube-main-iframe" class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Voice on the Rock Broadcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 bg-slate-900">
+                        <span id="active-video-category" class="inline-block text-[11px] font-bold px-2.5 py-1 rounded bg-gold-500/20 text-amber-300 uppercase mb-2">Featured Sermon</span>
+                        <h3 id="active-video-title" class="text-xl font-bold text-white mb-2">Standing Firm on the Rock of Christ</h3>
+                        <p id="active-video-desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            Discover how standing firm upon the Rock of Christ equips you to overcome life’s greatest storms.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 bg-slate-900/80 rounded-2xl p-4 border border-slate-800 flex flex-col h-[520px]">
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider px-2 py-2 mb-2 flex items-center justify-between">
+                        <span><i class="fa-solid fa-list-ul mr-2 text-gold-400"></i> Video Library</span>
+                        <span class="text-[11px] text-amber-400 font-bold" id="playlist-count">3 Sermons</span>
+                    </h4>
+
+                    <div class="space-y-3 overflow-y-auto custom-scrollbar flex-1 pr-1" id="playlist-container">
+                        <!-- Dynamic Playlist items -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Booking Prayer & Pastoral Counseling -->
+    <section id="booking" class="py-20 bg-slate-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-xs sm:text-sm">Personal Pastoral Support</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-1 mb-3">Book Prayer & Counseling Session</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Do you need urgent deliverance prayer or dedicated pastoral guidance with <strong>Evang. Joshua Ifeanyi Okonkwo</strong>? Schedule an appointment below.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
+                
+                <div class="flex border-b border-slate-200 bg-slate-50">
+                    <button id="tab-prayer" onclick="switchBookingTab('prayer')" class="flex-1 py-4 px-6 font-bold text-xs sm:text-sm text-brand-900 border-b-2 border-brand-700 bg-white flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-hands-praying text-gold-600"></i> Prayer Request / Session
+                    </button>
+                    <button id="tab-counseling" onclick="switchBookingTab('counseling')" class="flex-1 py-4 px-6 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-slate-800 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-comments text-brand-600"></i> Pastoral Counseling
+                    </button>
+                </div>
+
+                <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-6 sm:p-10 space-y-6">
+                    <input type="hidden" id="booking-type" value="prayer">
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Full Name *</label>
+                            <input type="text" id="book-name" required placeholder="e.g. Brother John Doe" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
+                            <input type="email" id="book-email" required placeholder="john@example.com" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Phone / WhatsApp *</label>
+                            <input type="tel" id="book-phone" required placeholder="+234 800 000 0000" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Session Mode</label>
+                            <select id="book-mode" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                                <option value="WhatsApp Call / Voice Note">WhatsApp Call / Voice Note</option>
+                                <option value="Phone Direct Call">Phone Direct Call</option>
+                                <option value="Online Zoom / Video Call">Online Zoom / Video Call</option>
+                                <option value="In-Person Counseling">In-Person Counseling</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Preferred Date *</label>
+                            <input type="date" id="book-date" required class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Preferred Time Slot *</label>
+                            <select id="book-time" required class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700">
+                                <option value="">Select an available time...</option>
+                                <option value="10:00 AM WAT">10:00 AM WAT (Morning Session)</option>
+                                <option value="02:00 PM WAT">02:00 PM WAT (Afternoon Session)</option>
+                                <option value="06:00 PM WAT">06:00 PM WAT (Evening Session)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Prayer Topic / Burden *</label>
+                        <textarea id="book-notes" rows="3" required placeholder="Briefly describe what you would like us to join faith with you in prayer for..." class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm uppercase tracking-wider shadow-lg transition">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Submit Booking Request
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bank Details & Giving Section -->
+    <section id="donate" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-slate-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
+                
+                <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="inline-block px-3 py-1 rounded-full bg-gold-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-heart text-gold-400 mr-1"></i> Partner With Us
+                        </span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                            Support Gospel Outreaches & Literature Production
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Your faithful seed supports open-air crusades, tract distribution, rural evangelism, and free book publishing.
+                        </p>
+
+                        <div class="p-4 sm:p-6 rounded-2xl bg-slate-900/90 border border-amber-500/30 space-y-4">
+                            <h4 class="text-amber-400 font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+                                <i class="fa-solid fa-building-columns text-base"></i> Direct Bank Transfer Details
+                            </h4>
+
+                            <!-- Moniepoint Account Details Updated -->
+                            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-[10px] uppercase text-slate-400 font-bold">Bank Name</span>
+                                    <span class="font-bold text-amber-300 text-sm">Moniepoint Microfinance Bank</span>
+                                    <span class="block text-xs font-mono font-bold text-white mt-0.5" id="moniepoint-num-display">7062073984</span>
+                                    <span class="block text-[11px] text-amber-400 font-semibold mt-1" id="moniepoint-name-display">Account Name: Joshua Okonkwo/ VoiceontheRock</span>
+                                </div>
+                                <button onclick="copyToClipboard('7062073984', 'Moniepoint Account Number')" class="px-3 py-1.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition">
+                                    <i class="fa-regular fa-copy mr-1"></i> Copy
+                                </button>
+                            </div>
+
+                            <!-- Access Bank Account Details -->
+                            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-[10px] uppercase text-slate-400 font-bold">Bank Name</span>
+                                    <span class="font-bold text-amber-300 text-sm">Access Bank</span>
+                                    <span class="block text-xs font-mono font-bold text-white mt-0.5" id="access-num-display">0063209953</span>
+                                    <span class="block text-[11px] text-slate-300 mt-1" id="access-name-display">Account Name: Evang. Joshua Ifeanyi Okonkwo</span>
+                                </div>
+                                <button onclick="copyToClipboard('0063209953', 'Access Bank Account Number')" class="px-3 py-1.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition">
+                                    <i class="fa-regular fa-copy mr-1"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-xl">
+                        <h3 class="font-heading font-bold text-xl text-brand-900 mb-4 text-center">Make an Online Offering / Seed</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-2">Select Amount (₦ NGN / $ USD)</label>
+                                <div class="grid grid-cols-4 gap-2 mb-3">
+                                    <button type="button" onclick="selectDonationAmount(5000)" class="donation-btn py-2.5 rounded-lg border border-slate-200 font-bold text-xs hover:border-gold-500 transition">₦5,000</button>
+                                    <button type="button" onclick="selectDonationAmount(10000)" class="donation-btn py-2.5 rounded-lg border border-slate-200 font-bold text-xs hover:border-gold-500 transition">₦10,000</button>
+                                    <button type="button" onclick="selectDonationAmount(25000)" class="donation-btn active border-2 border-gold-500 bg-gold-50 text-gold-700 py-2.5 rounded-lg font-bold text-xs transition">₦25,000</button>
+                                    <button type="button" onclick="selectDonationAmount(50000)" class="donation-btn py-2.5 rounded-lg border border-slate-200 font-bold text-xs hover:border-gold-500 transition">₦50,000</button>
+                                </div>
+                                <input type="number" id="custom-donation-input" placeholder="Or enter custom seed amount" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-2">Designate Seed To</label>
+                                <select id="donation-cause" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                                    <option value="General Evangelical Crusades">General Evangelical Crusades</option>
+                                    <option value="Tracts & Free Book Printing">Tracts & Free Book Printing</option>
+                                    <option value="VOTREM YouTube Broadcasts">VOTREM YouTube Broadcasts</option>
+                                </select>
+                            </div>
+
+                            <button onclick="openDonateModalWithData()" class="w-full py-4 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-lock text-sm"></i> Proceed to Confirm Seed
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="socials" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-xs sm:text-sm">Official Handles</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-1 mb-3">Connect Across All Channels</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Join our official social networks for daily scriptures, sermon clips, prayer alerts, and crusade updates.
+                </p>
+            </div>
+
+            <!-- Social Media Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="social-links-grid">
+                
+                <a href="https://www.youtube.com/@voiceontherockm" target="_blank" class="bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <span class="block font-bold text-slate-900 text-xs sm:text-sm">YouTube</span>
+                    <span class="text-[11px] text-slate-500">@voiceontherockm</span>
+                </a>
+
+                <a href="https://whatsapp.com/channel/0029Vb9KgXL8PgsJ9f2wJS0f" target="_blank" class="bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <span class="block font-bold text-slate-900 text-xs sm:text-sm">WhatsApp</span>
+                    <span class="text-[11px] text-slate-500">Official Channel</span>
+                </a>
+
+                <a href="https://t.me/voiceontherockem" target="_blank" class="bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-telegram"></i>
+                    </div>
+                    <span class="block font-bold text-slate-900 text-xs sm:text-sm">Telegram</span>
+                    <span class="text-[11px] text-slate-500">voiceontherockem</span>
+                </a>
+
+                <a href="https://www.facebook.com/share/1ExMu2Ahm9/" target="_blank" class="bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </div>
+                    <span class="block font-bold text-slate-900 text-xs sm:text-sm">Facebook</span>
+                    <span class="text-[11px] text-slate-500">Official Page</span>
+                </a>
+
+                <a href="https://www.instagram.com/voiceontherockevangelical?stkn=ZXIyazI2OGFxM3Zw" target="_blank" class="bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="block font-bold text-slate-900 text-xs sm:text-sm">Instagram</span>
+                    <span class="text-[11px] text-slate-500">@voiceontherock</span>
+                </a>
+
+                <a href="https://vm.tiktok.com/ZS9Ak8FQ2v1Rt-dBGmN/" target="_blank" class="bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-900 flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <span class="block font-bold text-slate-900 text-xs sm:text-sm">TikTok</span>
+                    <span class="text-[11px] text-slate-500">Short Messages</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="174.png" alt="Mission Logo" class="w-10 h-10 object-contain rounded bg-slate-900 p-1 border border-amber-500/30" onerror="this.src='153.png'">
+                        <span class="font-heading font-bold text-lg text-white">VOICE ON THE ROCK</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
+                        Voice on the Rock Evangelical Mission (VOTREM) is dedicated to preaching Christ Jesus, organizing revival crusades, distributing tracts and literature, and discipling believers.
+                    </p>
+                    <div class="pt-2 text-xs text-slate-300 space-y-1 font-medium">
+                        <p><i class="fa-solid fa-user text-amber-400 mr-2"></i> Lead Pastor: <span id="footer-pastor-display">Evang. Joshua Ifeanyi Okonkwo</span></p>
+                        <p><i class="fa-solid fa-phone text-amber-400 mr-2"></i> Phone / WhatsApp: <span id="footer-phone-display">+234 808 242 7700</span></p>
+                        <p><i class="fa-solid fa-envelope text-amber-400 mr-2"></i> Email: <a id="footer-email-primary-display" href="mailto:voiceontherockevangelical@gmail.com" class="hover:text-amber-300">voiceontherockevangelical@gmail.com</a></p>
+                        <p><i class="fa-solid fa-envelope-open-text text-amber-400 mr-2"></i> Email 2: <a id="footer-email-secondary-display" href="mailto:voiceontherock@yahoo.com" class="hover:text-amber-300">voiceontherock@yahoo.com</a></p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-amber-300 text-xs uppercase tracking-wider mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#about" class="hover:text-white transition">About & Vision</a></li>
+                        <li><a href="#pastor" class="hover:text-white transition">Lead Pastor</a></li>
+                        <li><a href="#departments" class="hover:text-white transition">Departments Arm</a></li>
+                        <li><a href="#activities" class="hover:text-white transition">Evangelical Crusades</a></li>
+                        <li><a href="#books" class="hover:text-white transition">Publications</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-amber-300 text-xs uppercase tracking-wider mb-4">Official Channels</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="https://www.youtube.com/@voiceontherockm" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-youtube text-red-500 mr-1.5"></i> YouTube Channel</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Vb9KgXL8PgsJ9f2wJS0f" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-whatsapp text-emerald-500 mr-1.5"></i> WhatsApp Channel</a></li>
+                        <li><a href="https://t.me/voiceontherockem" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-telegram text-sky-400 mr-1.5"></i> Telegram Group</a></li>
+                        <li><a href="https://vm.tiktok.com/ZS9Ak8FQ2v1Rt-dBGmN/" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-tiktok text-slate-200 mr-1.5"></i> TikTok Handle</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-amber-300 text-xs uppercase tracking-wider mb-4">Admin Access</h4>
+                    <p class="text-xs text-slate-400 mb-3">Login to manage site content, books, outreaches, and bank details.</p>
+                    <button onclick="openAdminLoginModal()" class="w-full py-2.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold uppercase tracking-wider transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-gauge-high"></i> Open Admin CMS
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <p>&copy; 2026 Voice on the Rock Evangelical Mission. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <button onclick="openAdminLoginModal()" class="hover:text-amber-400 transition">Admin Login</button>
+                    <a href="#about" class="hover:text-white">Standing on the Rock</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book Preview Modal -->
+    <div id="book-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-200">
+            <div class="p-5 bg-brand-900 text-white flex justify-between items-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400" id="modal-book-category">Book Category</span>
+                <button onclick="closeBookModal()" class="text-slate-400 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <img id="modal-book-img" src="" alt="Book Cover" class="w-32 h-44 object-cover rounded-lg shadow-md shrink-0 mx-auto sm:mx-0">
+                    <div>
+                        <h3 id="modal-book-title" class="font-heading font-bold text-xl text-slate-900"></h3>
+                        <p id="modal-book-author" class="text-xs text-gold-600 font-semibold mb-3"></p>
+                        <p id="modal-book-desc" class="text-slate-600 text-xs leading-relaxed mb-4"></p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 flex justify-end gap-2">
+                    <button onclick="closeBookModal()" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 font-bold text-xs">Close</button>
+                    <button onclick="orderFullBook()" class="px-5 py-2 rounded-lg bg-gold-500 hover:bg-gold-600 text-slate-950 font-bold text-xs uppercase tracking-wider">Request Book Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Giving Confirmation Modal -->
+    <div id="donate-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+            <div class="p-5 bg-brand-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-gold-400"></i>
+                    <h3 class="font-heading font-bold text-base">Voice on the Rock Giving</h3>
+                </div>
+                <button onclick="closeDonateModal()" class="text-slate-400 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-5">
+                <div class="text-center p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                    <span class="block text-[10px] uppercase text-amber-800 font-bold">Selected Seed</span>
+                    <span class="font-heading font-extrabold text-2xl text-brand-900" id="donate-modal-amount">₦25,000</span>
+                    <span class="block text-xs text-slate-600 mt-1" id="donate-modal-cause">General Evangelical Crusades</span>
+                </div>
+
+                <div class="space-y-3">
+                    <p class="text-xs font-bold text-slate-800 uppercase">Transfer directly to official bank accounts:</p>
+
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <p class="font-bold text-brand-900">Moniepoint MFB: <span class="font-mono text-amber-600 font-bold">7062073984</span></p>
+                        <p class="text-amber-800 font-semibold text-[11px]">Joshua Okonkwo/ VoiceontheRock</p>
+                    </div>
+
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <p class="font-bold text-brand-900">Access Bank: <span class="font-mono text-amber-600 font-bold">0063209953</span></p>
+                        <p class="text-slate-600 text-[11px]">Account Name: Evang. Joshua Ifeanyi Okonkwo</p>
+                    </div>
+                </div>
+
+                <button onclick="submitDonation()" class="w-full py-3.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
+                    I Have Made My Transfer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Password Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 text-white rounded-2xl max-w-sm w-full p-6 border border-amber-500/30 shadow-2xl relative">
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mx-auto mb-3 border border-amber-500/40">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="font-heading font-bold text-lg text-white">Admin CMS Login</h3>
+                <p class="text-slate-400 text-xs mt-1">Manage content, publications & bank details</p>
+            </div>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Passcode</label>
+                    <input type="password" id="admin-passcode-input" required placeholder="Enter your CMS passcode" class="w-full p-3 rounded-lg bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
+                    Login to CMS Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN CMS FULL DASHBOARD MODAL -->
+    <div id="admin-dashboard-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md overflow-y-auto p-3 sm:p-6">
+        <div class="bg-slate-900 border border-slate-800 text-white rounded-3xl max-w-6xl mx-auto shadow-2xl overflow-hidden min-h-[90vh] flex flex-col">
+            
+            <!-- CMS Header -->
+            <div class="bg-slate-950 px-6 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center font-bold">
+                        CMS
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-base sm:text-lg text-white">Voice on the Rock — Admin CMS</h2>
+                        <span class="text-[11px] text-amber-400 font-semibold">Live Content Management System</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="saveCmsSettings()" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition">
+                        <i class="fa-solid fa-floppy-disk mr-1"></i> Save Changes
+                    </button>
+                    <button onclick="closeAdminDashboard()" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs">
+                        Exit CMS
+                    </button>
+                </div>
+            </div>
+
+            <!-- CMS Body Content -->
+            <div class="flex-1 p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 custom-scrollbar overflow-y-auto">
+                
+                <!-- Sidebar Tabs -->
+                <div class="lg:col-span-3 space-y-2">
+                    <button onclick="switchCmsTab('outreaches')" id="cms-tab-btn-outreaches" class="cms-tab-btn active w-full p-3 rounded-xl bg-slate-800 text-amber-400 font-bold text-xs text-left flex items-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-bullhorn text-sm"></i> Manage Outreaches
+                    </button>
+                    <button onclick="switchCmsTab('books')" id="cms-tab-btn-books" class="cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800">
+                        <i class="fa-solid fa-book text-sm"></i> Manage Publications
+                    </button>
+                    <button onclick="switchCmsTab('videos')" id="cms-tab-btn-videos" class="cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800">
+                        <i class="fa-brands fa-youtube text-sm"></i> Manage YouTube Videos
+                    </button>
+                    <button onclick="switchCmsTab('settings')" id="cms-tab-btn-settings" class="cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800">
+                        <i class="fa-solid fa-gear text-sm"></i> Bank Accounts & Settings
+                    </button>
+                </div>
+
+                <!-- CMS Main Panel -->
+                <div class="lg:col-span-9 bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                    
+                    <!-- Outreaches Management -->
+                    <div id="cms-panel-outreaches" class="cms-panel space-y-6">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                            <h3 class="font-bold text-white text-sm uppercase tracking-wider">Outreach Crusades & Events</h3>
+                            <button onclick="addNewOutreachItem()" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold text-xs uppercase">
+                                + Add New Event
+                            </button>
+                        </div>
+                        <div id="cms-outreaches-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Books Management -->
+                    <div id="cms-panel-books" class="cms-panel hidden space-y-6">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                            <h3 class="font-bold text-white text-sm uppercase tracking-wider">Publications & Literature</h3>
+                            <button onclick="addNewBookItem()" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold text-xs uppercase">
+                                + Add New Book
+                            </button>
+                        </div>
+                        <div id="cms-books-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Videos Management -->
+                    <div id="cms-panel-videos" class="cms-panel hidden space-y-6">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                            <h3 class="font-bold text-white text-sm uppercase tracking-wider">YouTube Sermon Playlist</h3>
+                            <button onclick="addNewVideoItem()" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold text-xs uppercase">
+                                + Add Video
+                            </button>
+                        </div>
+                        <div id="cms-videos-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Settings & Bank Details Management -->
+                    <div id="cms-panel-settings" class="cms-panel hidden space-y-6">
+                        <h3 class="font-bold text-white text-sm uppercase tracking-wider pb-3 border-b border-slate-800">
+                            General Ministry Info & Bank Accounts
+                        </h3>
+
+                        <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">Lead Pastor Name</label>
+                                <input type="text" id="cms-pastor-name" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">Phone / WhatsApp Number</label>
+                                <input type="text" id="cms-pastor-phone" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">Primary Ministry Email</label>
+                                <input type="email" id="cms-email-primary" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">Secondary Ministry Email</label>
+                                <input type="email" id="cms-email-secondary" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4 text-xs pt-4 border-t border-slate-800">
+                            <div>
+                                <label class="block font-bold text-amber-400 mb-1">Moniepoint Account Number</label>
+                                <input type="text" id="cms-moniepoint-num" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white font-mono">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-amber-400 mb-1">Moniepoint Account Name</label>
+                                <input type="text" id="cms-moniepoint-name" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-amber-400 mb-1">Access Bank Account Number</label>
+                                <input type="text" id="cms-access-num" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white font-mono">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">Access Bank Account Name</label>
+                                <input type="text" id="cms-access-name" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800">
+                            <label class="block font-bold text-amber-400 mb-1 text-xs">Admin CMS Passcode</label>
+                            <input type="password" id="cms-admin-passcode" autocomplete="new-password" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white">
+                            <p class="text-[10px] text-slate-500 mt-1">This is a browser-side CMS passcode. For true secure administration across devices, connect the CMS to Supabase Auth.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        
+        // Ordered Departments Data
+        const departmentsData = {
+            evangelism: {
+                badge: "Department #1",
+                title: "Evangelism & Field Crusades",
+                desc: "The primary engine of VOTREM. Organizes street soul-winning, open-air crusade setups, rural evangelism drives, tract sharing, and public witnessing.",
+                bullets: ["Soul winning & tract distribution", "Crusade logistics & outdoor preaching", "Village and market revival teams"],
+                scripture: '"Go ye into all the world, and preach the gospel to every creature." — Mark 16:15'
+            },
+            publications: {
+                badge: "Department #2",
+                title: "Publications & Tracts Ministry",
+                desc: "Manages gospel literature production, tract editorial, book editing, print distribution, and digital book publishing.",
+                bullets: ["Writing & proofreading tracts", "Book distribution & literature logistics", "Publishing uncompromised Christian books"],
+                scripture: '"The Lord gave the word: great was the company of those that published it." — Psalm 68:11'
+            },
+            prayer: {
+                badge: "Department #3",
+                title: "Prayer & Intercession Arm",
+                desc: "Dedicated intercessors who uphold the mission in prayer, hold night vigils, stand on the prayer altar for souls, and pray for deliverance.",
+                bullets: ["24/7 Prayer Altar intercession", "Night vigils & deliverance warfare", "Praying for crusades & converts"],
+                scripture: '"Pray without ceasing." — 1 Thessalonians 5:17'
+            },
+            counseling: {
+                badge: "Department #4",
+                title: "Counseling & Discipleship",
+                desc: "Follow-up ministry for new converts, providing structured biblical foundation classes, personal spiritual mentoring, and restoration counseling.",
+                bullets: ["Convert follow-up & mentorship", "Believers foundation classes", "Restoration & spiritual direction"],
+                scripture: '"Teaching them to observe all things whatsoever I have commanded you." — Matthew 28:20'
+            },
+            media: {
+                badge: "Department #5",
+                title: "Media, YouTube & Tech Arm",
+                desc: "Handles audio/visual production, live streaming on YouTube @voiceontherockm, graphic design, social media broadcasting, and web management.",
+                bullets: ["YouTube live broadcasting & editing", "Sound engineering & video coverage", "Social media & digital graphics"],
+                scripture: '"Declare his glory among the heathen, his wonders among all people." — Psalm 96:3'
+            },
+            worship: {
+                badge: "Department #6",
+                title: "Worship & Sanctuary Ministry",
+                desc: "Ministers in anointed worship during crusades and programs, maintaining sanctuary order, ushering, and logistics.",
+                bullets: ["Anointed crusade choir & worship", "Sanctuary arrangement & protocol", "Welcoming & ushering team"],
+                scripture: '"Worship the Lord in the beauty of holiness." — Psalm 29:2'
+            }
+        };
+
+        // Events State
+        let eventsData = [
+            {
+                id: 1,
+                title: "Greater Grace Soul-Winning Crusade",
+                category: "crusade",
+                date: "Weekly Outreaches",
+                time: "5:30 PM WAT",
+                location: "Market Places & Village Crusades",
+                image: "174.png",
+                desc: "Open-air preaching, tracts distribution, and ministering salvation and deliverance to lost souls."
+            },
+            {
+                id: 2,
+                title: "VOTREM Deliverance & Revival Night",
+                category: "revival",
+                date: "Monthly Altar",
+                time: "10:00 PM WAT",
+                location: "Voice on the Rock Prayer Altar",
+                image: "224.jpg",
+                desc: "Intense warfare prayer, prophetic intercession, breaking ancestral curses, and yoke-destroying word."
+            },
+            {
+                id: 3,
+                title: "Believers Anointing & Faith Seminar",
+                category: "seminar",
+                date: "Quarterly Session",
+                time: "10:00 AM WAT",
+                location: "Grace Auditorium & Live YouTube",
+                image: "218.png",
+                desc: "Equipping soul-winners and ministers of the gospel with spiritual authority and biblical truth."
+            }
+        ];
+
+        // Books Data State
+        let booksData = [
+            {
+                id: 'b1',
+                title: "Standing Firm on the Rock",
+                author: "Evang. Joshua Ifeanyi Okonkwo",
+                category: "faith",
+                cover: "154.png",
+                desc: "A spiritual guidebook detailing how believers can build unshakeable spiritual stamina amidst modern trials."
+            },
+            {
+                id: 'b2',
+                title: "Overcoming Through Warfare Prayer",
+                author: "Evang. Joshua Ifeanyi Okonkwo",
+                category: "prayer",
+                cover: "153.png",
+                desc: "Scriptural warfare strategies and prayer points designed to dismantle demonic strongholds."
+            },
+            {
+                id: 'b3',
+                title: "The Heart of the Evangelist",
+                author: "Voice on the Rock Mission",
+                category: "discipleship",
+                cover: "174.png",
+                desc: "Igniting a passion for soul-winning and equipping everyday Christians for effective street evangelism."
+            }
+        ];
+
+        // Video Playlist State
+        let playlistVideos = [
+            {
+                id: "v1",
+                embedId: "dQw4w9WgXcQ",
+                title: "Standing Firm on the Rock of Christ",
+                category: "Featured Sermon",
+                desc: "Discover how standing firm upon the Rock of Christ equips you to overcome life's greatest storms."
+            },
+            {
+                id: "v2",
+                embedId: "3JZ_D3ELwOQ",
+                title: "Live Prophetic Prayer & Intercession",
+                category: "Prayer Night",
+                desc: "Join Evang. Joshua Ifeanyi Okonkwo in breaking burdens and praying for divine breakthrough."
+            },
+            {
+                id: "v3",
+                embedId: "L_LUpnjgPso",
+                title: "Evangelical Crusade Highlights - Miracles & Souls Saved",
+                category: "Crusade Video",
+                desc: "A recap of recent rural crusades with testimonies of salvation, healing, and joy."
+            }
+        ];
+
+        // Site Settings State (Updated Moniepoint Account Name)
+        const DEFAULT_SITE_SETTINGS = {
+            pastorName: "Evang. Joshua Ifeanyi Okonkwo",
+            phone: "+2348082427700",
+            emailPrimary: "voiceontherockevangelical@gmail.com",
+            emailSecondary: "voiceontherock@yahoo.com",
+            moniepointNum: "7062073984",
+            moniepointName: "Joshua Okonkwo/ VoiceontheRock",
+            accessNum: "0063209953",
+            accessName: "Evang. Joshua Ifeanyi Okonkwo",
+            adminPasscode: "Votrockem2020!"
+        };
+
+        let siteSettings = (() => {
+            try {
+                const saved = JSON.parse(localStorage.getItem('votremSiteSettings') || 'null');
+                return { ...DEFAULT_SITE_SETTINGS, ...(saved || {}) };
+            } catch (error) {
+                return { ...DEFAULT_SITE_SETTINGS };
+            }
+        })();
+
+        let selectedBookCategory = 'all';
+        let selectedDonation = 25000;
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Department Switcher Function
+        function setActiveDept(key) {
+            const dept = departmentsData[key];
+            if (!dept) return;
+
+            // Highlight Active Navigation Tab
+            document.querySelectorAll('.dept-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-900', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            const activeBtn = document.getElementById(`dept-btn-${key}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700');
+                activeBtn.classList.add('bg-brand-900', 'text-white', 'shadow-md');
+            }
+
+            // Update Department Left Banner Content
+            document.getElementById('dept-badge').innerText = dept.badge;
+            document.getElementById('dept-title').innerText = dept.title;
+            document.getElementById('dept-desc').innerText = dept.desc;
+            document.getElementById('dept-selected-name').value = dept.title;
+
+            showToast(`Switched to: ${dept.title}`, 'info');
+        }
+
+        function handleDeptFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('dept-user-name').value;
+            const deptName = document.getElementById('dept-selected-name').value;
+            
+            showToast(`God bless you, ${name}! Your application to join "${deptName}" has been submitted successfully.`, 'success');
+            document.getElementById('dept-form').reset();
+        }
+
+        function renderEvents() {
+            const container = document.getElementById('events-grid');
+            if (!container) return;
+
+            container.innerHTML = eventsData.map(ev => `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <img src="${ev.image}" alt="${ev.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='174.png'">
+                        <span class="absolute top-3 left-3 bg-brand-900/90 text-amber-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">
+                            ${ev.category}
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 text-xs text-gold-600 font-semibold mb-2">
+                                <span><i class="fa-regular fa-calendar mr-1"></i> ${ev.date}</span>
+                                <span>•</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> ${ev.time}</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">${ev.title}</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">${ev.desc}</p>
+                            <p class="text-xs text-slate-500 mb-6"><i class="fa-solid fa-location-dot text-brand-700 mr-1"></i> ${ev.location}</p>
+                        </div>
+                        <button onclick="registerForEvent('${ev.title}')" class="w-full py-2.5 rounded-lg border border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white font-bold text-xs uppercase tracking-wider transition">
+                            Participate / Join
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function registerForEvent(title) {
+            showToast(`Registered for "${title}". God bless you!`, 'success');
+        }
+
+        function setBookCategory(cat) {
+            selectedBookCategory = cat;
+            document.querySelectorAll('.book-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-800', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-brand-800', 'text-white');
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const container = document.getElementById('books-grid');
+            if (!container) return;
+
+            const query = (document.getElementById('book-search')?.value || '').toLowerCase();
+
+            const filtered = booksData.filter(b => {
+                const matchesCat = selectedBookCategory === 'all' || b.category === selectedBookCategory;
+                const matchesQuery = b.title.toLowerCase().includes(query) || b.desc.toLowerCase().includes(query);
+                return matchesCat && matchesQuery;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-500">
+                        <i class="fa-solid fa-book-open text-4xl mb-3 text-slate-300 block"></i>
+                        No publications found matching criteria.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(book => `
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 flex flex-col hover:shadow-lg transition">
+                    <img src="${book.cover}" alt="${book.title}" class="w-full h-52 object-cover rounded-xl mb-4 shadow bg-slate-900" onerror="this.src='154.png'">
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider text-gold-600 bg-gold-50 px-2 py-0.5 rounded border border-gold-200">${book.category}</span>
+                            <h4 class="font-heading font-bold text-slate-900 text-sm mt-2 mb-1">${book.title}</h4>
+                            <p class="text-[11px] text-slate-500 mb-2">${book.author}</p>
+                            <p class="text-xs text-slate-600 line-clamp-2 mb-4">${book.desc}</p>
+                        </div>
+                        <button onclick="openBookModal('${book.id}')" class="w-full py-2 rounded-lg bg-slate-50 border border-slate-300 text-slate-800 font-bold text-xs hover:bg-brand-900 hover:text-white transition">
+                            <i class="fa-solid fa-eye mr-1"></i> Preview Details
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openBookModal(id) {
+            const book = booksData.find(b => b.id === id);
+            if (!book) return;
+
+            document.getElementById('modal-book-title').innerText = book.title;
+            document.getElementById('modal-book-author').innerText = book.author;
+            document.getElementById('modal-book-desc').innerText = book.desc;
+            document.getElementById('modal-book-category').innerText = book.category;
+            document.getElementById('modal-book-img').src = book.cover;
+
+            document.getElementById('book-modal').classList.remove('hidden');
+        }
+
+        function closeBookModal() {
+            document.getElementById('book-modal').classList.add('hidden');
+        }
+
+        function orderFullBook() {
+            closeBookModal();
+            openDonateModalWithData("Publication Order");
+        }
+
+        function renderPlaylist() {
+            const container = document.getElementById('playlist-container');
+            if (!container) return;
+
+            document.getElementById('playlist-count').innerText = `${playlistVideos.length} Sermons`;
+
+            container.innerHTML = playlistVideos.map(vid => `
+                <div onclick="selectVideo('${vid.id}')" class="p-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 cursor-pointer transition flex gap-3 group">
+                    <div class="w-16 h-12 bg-slate-950 rounded-lg overflow-hidden shrink-0 flex items-center justify-center border border-slate-800">
+                        <i class="fa-brands fa-youtube text-red-500 text-lg group-hover:scale-110 transition"></i>
+                    </div>
+                    <div class="flex-1 overflow-hidden">
+                        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">${vid.category}</span>
+                        <h5 class="text-xs font-bold text-white truncate">${vid.title}</h5>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectVideo(id) {
+            const vid = playlistVideos.find(v => v.id === id);
+            if (!vid) return;
+
+            document.getElementById('youtube-main-iframe').src = `https://www.youtube.com/embed/${vid.embedId}?autoplay=1`;
+            document.getElementById('active-video-title').innerText = vid.title;
+            document.getElementById('active-video-category').innerText = vid.category;
+            document.getElementById('active-video-desc').innerText = vid.desc;
+
+            showToast(`Loading: "${vid.title}"`, 'info');
+        }
+
+        function switchBookingTab(tab) {
+            const prayerBtn = document.getElementById('tab-prayer');
+            const counselingBtn = document.getElementById('tab-counseling');
+            const typeInput = document.getElementById('booking-type');
+
+            if (tab === 'prayer') {
+                typeInput.value = 'prayer';
+                prayerBtn.className = "flex-1 py-4 px-6 font-bold text-xs sm:text-sm text-brand-900 border-b-2 border-brand-700 bg-white flex items-center justify-center gap-2";
+                counselingBtn.className = "flex-1 py-4 px-6 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-slate-800 flex items-center justify-center gap-2";
+            } else {
+                typeInput.value = 'counseling';
+                counselingBtn.className = "flex-1 py-4 px-6 font-bold text-xs sm:text-sm text-brand-900 border-b-2 border-brand-700 bg-white flex items-center justify-center gap-2";
+                prayerBtn.className = "flex-1 py-4 px-6 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-slate-800 flex items-center justify-center gap-2";
+            }
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('book-name').value;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+
+            showToast(`Thank you, ${name}! Your request for ${date} at ${time} is received.`, 'success');
+            document.getElementById('booking-form').reset();
+        }
+
+        function selectDonationAmount(amt) {
+            selectedDonation = amt;
+            document.getElementById('custom-donation-input').value = '';
+            document.querySelectorAll('.donation-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-gold-500', 'bg-gold-50', 'text-gold-700');
+                btn.classList.add('border-slate-200');
+            });
+            event.target.classList.add('active', 'border-2', 'border-gold-500', 'bg-gold-50', 'text-gold-700');
+        }
+
+        function openDonateModal() {
+            openDonateModalWithData();
+        }
+
+        function openDonateModalWithData(causeOverride = null) {
+            const customVal = document.getElementById('custom-donation-input')?.value;
+            const finalAmt = customVal && parseFloat(customVal) > 0 ? parseFloat(customVal) : selectedDonation;
+            const cause = causeOverride || document.getElementById('donation-cause')?.value || "General Evangelical Crusades";
+
+            document.getElementById('donate-modal-amount').innerText = `₦${finalAmt.toLocaleString()}`;
+            document.getElementById('donate-modal-cause').innerText = cause;
+            document.getElementById('donate-modal').classList.remove('hidden');
+        }
+
+        function closeDonateModal() {
+            document.getElementById('donate-modal').classList.add('hidden');
+        }
+
+        function submitDonation() {
+            closeDonateModal();
+            showToast("God bless your seed! Thank you for supporting the Gospel Mission.", "success");
+        }
+
+        function copyToClipboard(text, label = 'Text') {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast(`Copied ${label}: ${text}`, 'info');
+        }
+
+        function openAdminLoginModal() {
+            document.getElementById('admin-login-modal').classList.remove('hidden');
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('admin-passcode-input').value;
+            if (pass === siteSettings.adminPasscode) {
+                closeAdminLoginModal();
+                openAdminDashboard();
+                showToast('Welcome to Admin CMS Dashboard', 'success');
+            } else {
+                showToast('Incorrect Passcode!', 'info');
+            }
+        }
+
+        function openAdminDashboard() {
+            renderCmsOutreaches();
+            renderCmsBooks();
+            renderCmsVideos();
+            populateCmsSettings();
+            document.getElementById('admin-dashboard-modal').classList.remove('hidden');
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('admin-dashboard-modal').classList.add('hidden');
+        }
+
+        function switchCmsTab(tab) {
+            document.querySelectorAll('.cms-tab-btn').forEach(btn => {
+                btn.className = "cms-tab-btn w-full p-3 rounded-xl bg-slate-950 text-slate-400 hover:text-white font-semibold text-xs text-left flex items-center gap-2 border border-slate-800";
+            });
+            document.querySelectorAll('.cms-panel').forEach(panel => panel.classList.add('hidden'));
+
+            document.getElementById(`cms-tab-btn-${tab}`).className = "cms-tab-btn active w-full p-3 rounded-xl bg-slate-800 text-amber-400 font-bold text-xs text-left flex items-center gap-2 border border-slate-700";
+            document.getElementById(`cms-panel-${tab}`).classList.remove('hidden');
+        }
+
+        function renderCmsOutreaches() {
+            const container = document.getElementById('cms-outreaches-list');
+            container.innerHTML = eventsData.map((ev, idx) => `
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-amber-400 uppercase">Event #${idx + 1}</span>
+                        <button onclick="deleteOutreachItem(${idx})" class="text-xs text-red-400 hover:text-red-300 font-bold">
+                            <i class="fa-solid fa-trash mr-1"></i> Delete
+                        </button>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                        <input type="text" value="${ev.title}" onchange="eventsData[${idx}].title=this.value" placeholder="Title" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${ev.date}" onchange="eventsData[${idx}].date=this.value" placeholder="Date" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${ev.location}" onchange="eventsData[${idx}].location=this.value" placeholder="Location" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${ev.image}" onchange="eventsData[${idx}].image=this.value" placeholder="Image Filename" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addNewOutreachItem() {
+            eventsData.unshift({
+                id: Date.now(),
+                title: "New Evangelical Outreach",
+                category: "crusade",
+                date: "Upcoming Date",
+                time: "5:00 PM WAT",
+                location: "Outreach Location",
+                image: "174.png",
+                desc: "Description of crusade or outreach event."
+            });
+            renderCmsOutreaches();
+        }
+
+        function deleteOutreachItem(idx) {
+            eventsData.splice(idx, 1);
+            renderCmsOutreaches();
+        }
+
+        function renderCmsBooks() {
+            const container = document.getElementById('cms-books-list');
+            container.innerHTML = booksData.map((b, idx) => `
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-amber-400 uppercase">Book #${idx + 1}</span>
+                        <button onclick="deleteBookItem(${idx})" class="text-xs text-red-400 hover:text-red-300 font-bold">
+                            <i class="fa-solid fa-trash mr-1"></i> Delete
+                        </button>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                        <input type="text" value="${b.title}" onchange="booksData[${idx}].title=this.value" placeholder="Book Title" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${b.author}" onchange="booksData[${idx}].author=this.value" placeholder="Author" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${b.cover}" onchange="booksData[${idx}].cover=this.value" placeholder="Cover Image File" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${b.category}" onchange="booksData[${idx}].category=this.value" placeholder="Category" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addNewBookItem() {
+            booksData.unshift({
+                id: 'b' + Date.now(),
+                title: "New Anointed Book Title",
+                author: "Evang. Joshua Ifeanyi Okonkwo",
+                category: "faith",
+                cover: "154.png",
+                desc: "Inspirational publication description."
+            });
+            renderCmsBooks();
+        }
+
+        function deleteBookItem(idx) {
+            booksData.splice(idx, 1);
+            renderCmsBooks();
+        }
+
+        function renderCmsVideos() {
+            const container = document.getElementById('cms-videos-list');
+            container.innerHTML = playlistVideos.map((v, idx) => `
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-amber-400 uppercase">Video #${idx + 1}</span>
+                        <button onclick="deleteVideoItem(${idx})" class="text-xs text-red-400 hover:text-red-300 font-bold">
+                            <i class="fa-solid fa-trash mr-1"></i> Delete
+                        </button>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                        <input type="text" value="${v.title}" onchange="playlistVideos[${idx}].title=this.value" placeholder="Video Title" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                        <input type="text" value="${v.embedId}" onchange="playlistVideos[${idx}].embedId=this.value" placeholder="YouTube Video ID (e.g. dQw4w9WgXcQ)" class="p-2 rounded bg-slate-950 border border-slate-800 text-white">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addNewVideoItem() {
+            playlistVideos.unshift({
+                id: 'v' + Date.now(),
+                embedId: "dQw4w9WgXcQ",
+                title: "New Sermon Broadcast",
+                category: "Sermon",
+                desc: "New YouTube sermon description."
+            });
+            renderCmsVideos();
+        }
+
+        function deleteVideoItem(idx) {
+            playlistVideos.splice(idx, 1);
+            renderCmsVideos();
+        }
+
+        function populateCmsSettings() {
+            document.getElementById('cms-pastor-name').value = siteSettings.pastorName;
+            document.getElementById('cms-pastor-phone').value = siteSettings.phone;
+            document.getElementById('cms-email-primary').value = siteSettings.emailPrimary;
+            document.getElementById('cms-email-secondary').value = siteSettings.emailSecondary;
+            document.getElementById('cms-moniepoint-num').value = siteSettings.moniepointNum;
+            document.getElementById('cms-moniepoint-name').value = siteSettings.moniepointName;
+            document.getElementById('cms-access-num').value = siteSettings.accessNum;
+            document.getElementById('cms-access-name').value = siteSettings.accessName;
+            document.getElementById('cms-admin-passcode').value = siteSettings.adminPasscode;
+        }
+
+        function saveCmsSettings() {
+            siteSettings.pastorName = document.getElementById('cms-pastor-name').value.trim();
+            siteSettings.phone = document.getElementById('cms-pastor-phone').value.trim();
+            siteSettings.emailPrimary = document.getElementById('cms-email-primary').value.trim();
+            siteSettings.emailSecondary = document.getElementById('cms-email-secondary').value.trim();
+            siteSettings.moniepointNum = document.getElementById('cms-moniepoint-num').value.trim();
+            siteSettings.moniepointName = document.getElementById('cms-moniepoint-name').value.trim();
+            siteSettings.accessNum = document.getElementById('cms-access-num').value.trim();
+            siteSettings.accessName = document.getElementById('cms-access-name').value.trim();
+            siteSettings.adminPasscode = document.getElementById('cms-admin-passcode').value;
+
+            if (!siteSettings.adminPasscode) {
+                showToast('Please enter an admin passcode before saving.', 'info');
+                return;
+            }
+
+            try {
+                localStorage.setItem('votremSiteSettings', JSON.stringify(siteSettings));
+            } catch (error) {
+                console.warn('Could not save CMS settings to local storage.', error);
+            }
+
+            // Apply live DOM changes across website
+            document.getElementById('pastor-name-display').innerText = siteSettings.pastorName;
+            document.getElementById('footer-pastor-display').innerText = siteSettings.pastorName;
+            
+            document.getElementById('header-phone-display').innerText = siteSettings.phone;
+            document.getElementById('pastor-phone-display').innerText = siteSettings.phone;
+            document.getElementById('footer-phone-display').innerText = siteSettings.phone;
+
+            const primaryEmail = document.getElementById('footer-email-primary-display');
+            const secondaryEmail = document.getElementById('footer-email-secondary-display');
+            if (primaryEmail) {
+                primaryEmail.innerText = siteSettings.emailPrimary;
+                primaryEmail.href = `mailto:${siteSettings.emailPrimary}`;
+            }
+            if (secondaryEmail) {
+                secondaryEmail.innerText = siteSettings.emailSecondary;
+                secondaryEmail.href = `mailto:${siteSettings.emailSecondary}`;
+            }
+
+            document.getElementById('moniepoint-num-display').innerText = siteSettings.moniepointNum;
+            document.getElementById('moniepoint-name-display').innerText = `Account Name: ${siteSettings.moniepointName}`;
+            document.getElementById('access-num-display').innerText = siteSettings.accessNum;
+            document.getElementById('access-name-display').innerText = `Account Name: ${siteSettings.accessName}`;
+
+            renderEvents();
+            renderBooks();
+            renderPlaylist();
+
+            closeAdminDashboard();
+            showToast('All CMS changes saved and updated live on the website!', 'success');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl text-white text-xs sm:text-sm font-semibold transition transform translate-y-2 opacity-0 duration-300 ${
+                type === 'success' ? 'bg-emerald-600' : 'bg-slate-900 border border-slate-700'
+            }`;
+
+            const icon = type === 'success' ? 'fa-circle-check' : 'fa-circle-info';
+
+            toast.innerHTML = `<i class="fa-solid ${icon} text-lg text-amber-400"></i><span>${message}</span>`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        function applySavedSiteSettings() {
+            const pastor = document.getElementById('pastor-name-display');
+            const footerPastor = document.getElementById('footer-pastor-display');
+            const headerPhone = document.getElementById('header-phone-display');
+            const pastorPhone = document.getElementById('pastor-phone-display');
+            const footerPhone = document.getElementById('footer-phone-display');
+            const moniepointNum = document.getElementById('moniepoint-num-display');
+            const moniepointName = document.getElementById('moniepoint-name-display');
+            const accessNum = document.getElementById('access-num-display');
+            const accessName = document.getElementById('access-name-display');
+            if (pastor) pastor.innerText = siteSettings.pastorName;
+            if (footerPastor) footerPastor.innerText = siteSettings.pastorName;
+            if (headerPhone) headerPhone.innerText = siteSettings.phone;
+            if (pastorPhone) pastorPhone.innerText = siteSettings.phone;
+            if (footerPhone) footerPhone.innerText = siteSettings.phone;
+            if (moniepointNum) moniepointNum.innerText = siteSettings.moniepointNum;
+            if (moniepointName) moniepointName.innerText = `Account Name: ${siteSettings.moniepointName}`;
+            if (accessNum) accessNum.innerText = siteSettings.accessNum;
+            if (accessName) accessName.innerText = `Account Name: ${siteSettings.accessName}`;
+            const primaryEmail = document.getElementById('footer-email-primary-display');
+            const secondaryEmail = document.getElementById('footer-email-secondary-display');
+            if (primaryEmail) { primaryEmail.innerText = siteSettings.emailPrimary; primaryEmail.href = `mailto:${siteSettings.emailPrimary}`; }
+            if (secondaryEmail) { secondaryEmail.innerText = siteSettings.emailSecondary; secondaryEmail.href = `mailto:${siteSettings.emailSecondary}`; }
+        }
+
+        // Initialize on Window Load
+        window.onload = function() {
+            applySavedSiteSettings();
+            renderEvents();
+            renderBooks();
+            renderPlaylist();
+        };
+    </script>
+</body>
+</html>
+
+```
