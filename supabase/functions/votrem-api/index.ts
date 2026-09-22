@@ -126,6 +126,8 @@ async function verifyPayment(body: any) {
   if (!secret) throw new Error('Payment gateway is not configured yet.');
   const reference = clean(body.reference, 120);
   if (!reference) throw new Error('Payment reference is required.');
+  const expectedAmount = Number(body.expected_amount);
+  if (body.expected_amount !== undefined && (!Number.isFinite(expectedAmount) || expectedAmount < 100)) throw new Error('Invalid expected payment amount.');
 
   const res = await fetch(`https://api.paystack.co/transaction/verify/${encodeURIComponent(reference)}`, {
     headers: { Authorization: `Bearer ${secret}` },
@@ -135,6 +137,7 @@ async function verifyPayment(body: any) {
 
   const tx = data.data;
   if (tx.status !== 'success') return { ok: false, status: tx.status };
+  if (Number.isFinite(expectedAmount) && Number(tx.amount) !== Math.round(expectedAmount * 100)) throw new Error('Payment amount could not be verified.');
 
   const key = getSecretKey();
   await fetch(`${supabaseUrl()}/rest/v1/donations?reference=eq.${encodeURIComponent(reference)}`, {
@@ -166,4 +169,3 @@ Deno.serve(async (req) => {
     return json({ error: error instanceof Error ? error.message : 'Request failed.' }, 400);
   }
 });
-
